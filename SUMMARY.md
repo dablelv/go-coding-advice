@@ -1,5 +1,5 @@
 # Table of contents
 
 * [前言](README.md)
-* [chapter-1](chapter-1/README.md)
-  * [project\_layout](chapter-1/project\_layout.md)
+* [布局篇](chapter-1/README.md)
+  * [项目布局](chapter-1/project\_layout.md)
