@@ -28,11 +28,12 @@ Go 虽然简单，但其功能特性却不单一。其丰富的语言特性，�
 
 高效的代码是我们每一个 coder 的共同追求。为书写效率更高的代码，本文将结合 Go 语言特性，从常用数据结构、内存管理和并发，三个方面给出相关建议。
 
-本文所述内容均为参考意见，并非标准。其中许多是 Go 的通用准则，而其他扩展内容也参考了很多官方指南，包括但不限于。
+本文所述内容均为参考意见，并非标准。其中许多是 Go 的通用准则，其他扩展内容也参考了很多官方指南，包括但不限于。
 - [Effective Go](https://golang.org/doc/effective_go.html)
-- [Go Common Mistakes](https://github.com/golang/go/wiki/CommonMistakes)
-- [Go Code Review Comments](https://github.com/golang/go/wiki/CodeReviewComments)
+- [Golang Wiki | Go Common Mistakes](https://github.com/golang/go/wiki/CommonMistakes)
+- [Golang Wiki | Go Code Review Comments](https://github.com/golang/go/wiki/CodeReviewComments)
 - [The Go Programming Language Specification](https://golang.org/ref/spec)
+- [The Go Programming Frequently Asked Questions (FAQ)](https://go.dev/doc/faq)
 
 # 目标读者
 如果是 Go 的初学者，建议先略过本书，了解下 Go 官方的入门指南 [A Tour of Go](https://go.dev/tour/)，这应该是入门必读最佳读物。
