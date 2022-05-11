@@ -18,7 +18,8 @@ Go 不仅易用，也很易学，这得益于与之匹配的丰富学习资料�
 
 - 编码风格
 
-编码风格从简洁易读的角度出发，参考 Go 官方 [Go Code Review Comments](https://github.com/golang/go/wiki/CodeReviewComments)，并结合自身项目团队编码规范，力争给出全面、认可度较高的编码风格，帮助大家写出统一风格的简洁高效的代码。
+编码风格从简洁易读的角度出发，参考 Go 官方 [Go Code Review Comments](https://github.com/golang/go/wiki/CodeReviewComments)
+，并结合自身项目团队编码规范，力争给出全面、认可度较高的编码风格，帮助大家写出风格统一的简洁高效的代码。
 
 - 功能实践
 
