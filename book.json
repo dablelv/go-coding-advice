@@ -1,5 +1,3 @@
 {
-  "title": "Go 编码建议",
-  "description": "Jartto-GitBook-Demo",
-  "plugins": ["splitter"]
+  "plugins": ["expandable-chapters","splitter"]
 }
