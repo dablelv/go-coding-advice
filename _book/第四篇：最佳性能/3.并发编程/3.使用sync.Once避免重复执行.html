@@ -1,0 +1,1215 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>3.使用 sync.Once 避免重复执行 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="4.使用sync.Cond通知协程.html" />
+    
+    
+    <link rel="prev" href="2.限制协程数量.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    第一篇：项目布局
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../第一篇：项目布局/项目布局.html">
+            
+                <a href="../../第一篇：项目布局/项目布局.html">
+            
+                    
+                    项目布局
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    第二篇：代码风格
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../第二篇：代码风格/1.格式化.html">
+            
+                <a href="../../第二篇：代码风格/1.格式化.html">
+            
+                    
+                    1.格式化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../第二篇：代码风格/2.代码行.html">
+            
+                <a href="../../第二篇：代码风格/2.代码行.html">
+            
+                    
+                    2.代码行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../../第二篇：代码风格/3.字符串.html">
+            
+                <a href="../../第二篇：代码风格/3.字符串.html">
+            
+                    
+                    3.字符串
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../../第二篇：代码风格/4.依赖管理.html">
+            
+                <a href="../../第二篇：代码风格/4.依赖管理.html">
+            
+                    
+                    4.依赖管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../../第二篇：代码风格/5.初始化.html">
+            
+                <a href="../../第二篇：代码风格/5.初始化.html">
+            
+                    
+                    5.初始化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../../第二篇：代码风格/6.错误处理.html">
+            
+                <a href="../../第二篇：代码风格/6.错误处理.html">
+            
+                    
+                    6.错误处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../../第二篇：代码风格/7.注释.html">
+            
+                <a href="../../第二篇：代码风格/7.注释.html">
+            
+                    
+                    7.注释
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../../第二篇：代码风格/8.命名规范.html">
+            
+                <a href="../../第二篇：代码风格/8.命名规范.html">
+            
+                    
+                    8.命名规范
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../../第二篇：代码风格/9.流程控制.html">
+            
+                <a href="../../第二篇：代码风格/9.流程控制.html">
+            
+                    
+                    9.流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../../第二篇：代码风格/10.函数.html">
+            
+                <a href="../../第二篇：代码风格/10.函数.html">
+            
+                    
+                    10.函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="../../第二篇：代码风格/11.单元测试.html">
+            
+                <a href="../../第二篇：代码风格/11.单元测试.html">
+            
+                    
+                    11.单元测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="../../第二篇：代码风格/12.杂项.html">
+            
+                <a href="../../第二篇：代码风格/12.杂项.html">
+            
+                    
+                    12.杂项
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    第三篇：功能设计
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" >
+            
+                <span>
+            
+                    
+                    1.常用数据结构
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../../第三篇：功能设计/1.常用数据结构/1.不需要指向interface的指针.html">
+            
+                <a href="../../第三篇：功能设计/1.常用数据结构/1.不需要指向interface的指针.html">
+            
+                    
+                    1.不需要指向 interface 的指针
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="../../第三篇：功能设计/1.常用数据结构/2.编译期验证interface合理性.html">
+            
+                <a href="../../第三篇：功能设计/1.常用数据结构/2.编译期验证interface合理性.html">
+            
+                    
+                    2.编译期验证 interface 合理性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" data-path="../../第三篇：功能设计/1.常用数据结构/3.在边界处拷贝slice和map.html">
+            
+                <a href="../../第三篇：功能设计/1.常用数据结构/3.在边界处拷贝slice和map.html">
+            
+                    
+                    3.在边界处拷贝 slice 和 map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4" data-path="../../第三篇：功能设计/1.常用数据结构/4.枚举从1开始.html">
+            
+                <a href="../../第三篇：功能设计/1.常用数据结构/4.枚举从1开始.html">
+            
+                    
+                    4.枚举从 1 开始
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" >
+            
+                <span>
+            
+                    
+                    2.函数
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="../../第三篇：功能设计/2.函数/1.方法接收器为值和指针的区别.html">
+            
+                <a href="../../第三篇：功能设计/2.函数/1.方法接收器为值和指针的区别.html">
+            
+                    
+                    1.方法接收器为值和指针的区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="../../第三篇：功能设计/2.函数/2.使用defer释放资源.html">
+            
+                <a href="../../第三篇：功能设计/2.函数/2.使用defer释放资源.html">
+            
+                    
+                    2.使用 defer 释放资源
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3" data-path="../../第三篇：功能设计/2.函数/3.不要在for循环中使用defer.html">
+            
+                <a href="../../第三篇：功能设计/2.函数/3.不要在for循环中使用defer.html">
+            
+                    
+                    3.不要在 for 循环中使用 defer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" >
+            
+                <span>
+            
+                    
+                    3.并发编程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.1" data-path="../../第三篇：功能设计/3.并发编程/1.零值Mutex是有效的.html">
+            
+                <a href="../../第三篇：功能设计/3.并发编程/1.零值Mutex是有效的.html">
+            
+                    
+                    1.零值 Mutex 是有效的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.2" data-path="../../第三篇：功能设计/3.并发编程/2.channel大小要么是1或0.html">
+            
+                <a href="../../第三篇：功能设计/3.并发编程/2.channel大小要么是1或0.html">
+            
+                    
+                    2.channel size 要么是 1 或 0
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" >
+            
+                <span>
+            
+                    
+                    4.错误处理
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.1" data-path="../../第三篇：功能设计/4.错误处理/1.错误处理.html">
+            
+                <a href="../../第三篇：功能设计/4.错误处理/1.错误处理.html">
+            
+                    
+                    1.错误处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" >
+            
+                <span>
+            
+                    
+                    5.包的使用
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.5.1" data-path="../../第三篇：功能设计/5.包的使用/1.使用time包处理时间.html">
+            
+                <a href="../../第三篇：功能设计/5.包的使用/1.使用time包处理时间.html">
+            
+                    
+                    1.使用 time 包处理时间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5.2" data-path="../../第三篇：功能设计/5.包的使用/2.使用第三方atomic包.html">
+            
+                <a href="../../第三篇：功能设计/5.包的使用/2.使用第三方atomic包.html">
+            
+                    
+                    2.使用第三方 atomic 包
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" >
+            
+                <span>
+            
+                    
+                    6.程序设计
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.6.1" data-path="../../第三篇：功能设计/6.程序设计/1.避免使用可变全局变量.html">
+            
+                <a href="../../第三篇：功能设计/6.程序设计/1.避免使用可变全局变量.html">
+            
+                    
+                    1.避免使用可变全局变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6.2" data-path="../../第三篇：功能设计/6.程序设计/2.避免在公共结构中嵌入类型.html">
+            
+                <a href="../../第三篇：功能设计/6.程序设计/2.避免在公共结构中嵌入类型.html">
+            
+                    
+                    2.避免在公共结构中嵌入类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    第四篇：最佳性能
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../0.导语.html">
+            
+                <a href="../0.导语.html">
+            
+                    
+                    0.导语
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" >
+            
+                <span>
+            
+                    
+                    1.常用数据结构
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.2.1" data-path="../1.常用数据结构/1.反射虽好，切莫贪杯.html">
+            
+                <a href="../1.常用数据结构/1.反射虽好，切莫贪杯.html">
+            
+                    
+                    1.反射虽好，切莫贪杯
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.2" data-path="../1.常用数据结构/2.避免重复转换字符串到字节切片.html">
+            
+                <a href="../1.常用数据结构/2.避免重复转换字符串到字节切片.html">
+            
+                    
+                    2.避免重复转换字符串到字节切片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.3" data-path="../1.常用数据结构/3.指定容器容量.html">
+            
+                <a href="../1.常用数据结构/3.指定容器容量.html">
+            
+                    
+                    3.指定容器容量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.4" data-path="../1.常用数据结构/4.字符串拼接方式.html">
+            
+                <a href="../1.常用数据结构/4.字符串拼接方式.html">
+            
+                    
+                    4.字符串拼接方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.5" data-path="../1.常用数据结构/5.[]struct{}的遍历方式.html">
+            
+                <a href="../1.常用数据结构/5.[]struct{}的遍历方式.html">
+            
+                    
+                    5.[]struct{} 的遍历方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.6" data-path="../1.常用数据结构/6.切片删除指定元素.html">
+            
+                <a href="../1.常用数据结构/6.切片删除指定元素.html">
+            
+                    
+                    6.切片删除指定元素
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" >
+            
+                <span>
+            
+                    
+                    2.内存管理
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.3.1" data-path="../2.内存管理/1.使用空结构体节省内存.html">
+            
+                <a href="../2.内存管理/1.使用空结构体节省内存.html">
+            
+                    
+                    1.使用空结构体节省内存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.2" data-path="../2.内存管理/2.struct布局考虑内存对齐.html">
+            
+                <a href="../2.内存管理/2.struct布局考虑内存对齐.html">
+            
+                    
+                    2.struct 布局考虑内存对齐
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.3" data-path="../2.内存管理/3.减少逃逸，将变量限制在栈上.html">
+            
+                <a href="../2.内存管理/3.减少逃逸，将变量限制在栈上.html">
+            
+                    
+                    3.减少逃逸，将变量限制在栈上
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.4" data-path="../2.内存管理/4.sync.Pool复用对象.html">
+            
+                <a href="../2.内存管理/4.sync.Pool复用对象.html">
+            
+                    
+                    4.sync.Pool 复用对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" >
+            
+                <span>
+            
+                    
+                    3.并发编程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.4.1" data-path="1.零值Mutex是有效的.md">
+            
+                <span>
+            
+                    
+                    1.关于锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.2" data-path="2.限制协程数量.html">
+            
+                <a href="2.限制协程数量.html">
+            
+                    
+                    2.限制协程数量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.4.3" data-path="3.使用sync.Once避免重复执行.html">
+            
+                <a href="3.使用sync.Once避免重复执行.html">
+            
+                    
+                    3.使用 sync.Once 避免重复执行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.4" data-path="4.使用sync.Cond通知协程.html">
+            
+                <a href="4.使用sync.Cond通知协程.html">
+            
+                    
+                    4.使用 sync.Cond 通知协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../参考文献.html">
+            
+                <a href="../../参考文献.html">
+            
+                    
+                    参考文献
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >3.使用 sync.Once 避免重复执行</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="1&#x7B80;&#x4ECB;">1.&#x7B80;&#x4ECB;</h1>
+<p>sync.Once &#x662F; Go &#x6807;&#x51C6;&#x5E93;&#x63D0;&#x4F9B;&#x7684;&#x4F7F;&#x51FD;&#x6570;&#x53EA;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x5E38;&#x5E94;&#x7528;&#x4E8E;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#xFF0C;&#x4F8B;&#x5982;&#x521D;&#x59CB;&#x5316;&#x914D;&#x7F6E;&#x3001;&#x4FDD;&#x6301;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#x7B49;&#x3002;&#x4F5C;&#x7528;&#x4E0E; init &#x51FD;&#x6570;&#x7C7B;&#x4F3C;&#xFF0C;&#x4F46;&#x6709;&#x533A;&#x522B;&#x3002;</p>
+<ul>
+<li>init &#x51FD;&#x6570;&#x662F;&#x5F53;&#x6240;&#x5728;&#x7684; package &#x9996;&#x6B21;&#x88AB;&#x52A0;&#x8F7D;&#x65F6;&#x6267;&#x884C;&#xFF0C;&#x82E5;&#x8FDF;&#x8FDF;&#x672A;&#x88AB;&#x4F7F;&#x7528;&#xFF0C;&#x5219;&#x65E2;&#x6D6A;&#x8D39;&#x4E86;&#x5185;&#x5B58;&#xFF0C;&#x53C8;&#x5EF6;&#x957F;&#x4E86;&#x7A0B;&#x5E8F;&#x52A0;&#x8F7D;&#x65F6;&#x95F4;&#x3002;</li>
+<li>sync.Once &#x53EF;&#x4EE5;&#x5728;&#x4EE3;&#x7801;&#x7684;&#x4EFB;&#x610F;&#x4F4D;&#x7F6E;&#x521D;&#x59CB;&#x5316;&#x548C;&#x8C03;&#x7528;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x5EF6;&#x8FDF;&#x5230;&#x4F7F;&#x7528;&#x65F6;&#x518D;&#x6267;&#x884C;&#xFF0C;&#x5E76;&#x53D1;&#x573A;&#x666F;&#x4E0B;&#x662F;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#x3002;</li>
+</ul>
+<p>&#x5728;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;sync.Once &#x88AB;&#x7528;&#x4E8E;&#x63A7;&#x5236;&#x53D8;&#x91CF;&#x7684;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x7684;&#x8BFB;&#x5199;&#x6EE1;&#x8DB3;&#x5982;&#x4E0B;&#x4E09;&#x4E2A;&#x6761;&#x4EF6;&#xFF1A;</p>
+<ul>
+<li>&#x5F53;&#x4E14;&#x4EC5;&#x5F53;&#x7B2C;&#x4E00;&#x6B21;&#x8BBF;&#x95EE;&#x67D0;&#x4E2A;&#x53D8;&#x91CF;&#x65F6;&#xFF0C;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#xFF08;&#x5199;&#xFF09;&#xFF1B;</li>
+<li>&#x53D8;&#x91CF;&#x521D;&#x59CB;&#x5316;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x6240;&#x6709;&#x8BFB;&#x90FD;&#x88AB;&#x963B;&#x585E;&#xFF0C;&#x76F4;&#x5230;&#x521D;&#x59CB;&#x5316;&#x5B8C;&#x6210;&#xFF1B;</li>
+<li>&#x53D8;&#x91CF;&#x4EC5;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x6B21;&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x5B8C;&#x6210;&#x540E;&#x9A7B;&#x7559;&#x5728;&#x5185;&#x5B58;&#x91CC;&#x3002;</li>
+</ul>
+<h1 id="2&#x539F;&#x7406;">2.&#x539F;&#x7406;</h1>
+<p>sync.Once &#x7528;&#x6765;&#x4FDD;&#x8BC1;&#x51FD;&#x6570;&#x53EA;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x3002;&#x8981;&#x8FBE;&#x5230;&#x8FD9;&#x4E2A;&#x6548;&#x679C;&#xFF0C;&#x9700;&#x8981;&#x505A;&#x5230;&#x4E24;&#x70B9;&#xFF1A;</p>
+<ul>
+<li>&#x8BA1;&#x6570;&#x5668;&#xFF0C;&#x7EDF;&#x8BA1;&#x51FD;&#x6570;&#x6267;&#x884C;&#x6B21;&#x6570;&#xFF1B;</li>
+<li>&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#xFF0C;&#x4FDD;&#x969C;&#x5728;&#x591A; Go &#x7A0B;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x51FD;&#x6570;&#x4ECD;&#x7136;&#x53EA;&#x6267;&#x884C;&#x4E00;&#x6B21;&#xFF0C;&#x6BD4;&#x5982;&#x9501;&#x3002;</li>
+</ul>
+<h2 id="21-&#x6E90;&#x7801;">2.1 &#x6E90;&#x7801;</h2>
+<p>&#x4E0B;&#x9762;&#x770B;&#x4E00;&#x4E0B; sync.Once &#x7ED3;&#x6784;&#xFF0C;&#x5176;&#x6709;&#x4E24;&#x4E2A;&#x53D8;&#x91CF;&#x3002;&#x4F7F;&#x7528; done &#x7EDF;&#x8BA1;&#x51FD;&#x6570;&#x6267;&#x884C;&#x6B21;&#x6570;&#xFF0C;&#x4F7F;&#x7528;&#x9501; m &#x5B9E;&#x73B0;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x3002;&#x679C;&#x4E0D;&#x5176;&#x7136;&#xFF0C;&#x548C;&#x4E0A;&#x9762;&#x7684;&#x731C;&#x60F3;&#x4E00;&#x81F4;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// Once is an object that will perform exactly one action.</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// A Once must not be copied after first use.</span>
+<span class="hljs-keyword">type</span> Once <span class="hljs-keyword">struct</span> {
+    <span class="hljs-comment">// done indicates whether the action has been performed.</span>
+    <span class="hljs-comment">// It is first in the struct because it is used in the hot path.</span>
+    <span class="hljs-comment">// The hot path is inlined at every call site.</span>
+    <span class="hljs-comment">// Placing done first allows more compact instructions on some architectures (amd64/386),</span>
+    <span class="hljs-comment">// and fewer instructions (to calculate offset) on other architectures.</span>
+    done <span class="hljs-keyword">uint32</span>
+    m    Mutex
+}
+</code></pre>
+<p>sync.Once &#x4EC5;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x5BFC;&#x51FA;&#x65B9;&#x6CD5; Do()&#xFF0C;&#x53C2;&#x6570; f &#x662F;&#x53EA;&#x4F1A;&#x88AB;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x4E00;&#x822C;&#x4E3A;&#x5BF9;&#x8C61;&#x521D;&#x59CB;&#x5316;&#x51FD;&#x6570;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// go version go1.17 darwin/amd64</span>
+
+<span class="hljs-comment">// Do calls the function f if and only if Do is being called for the</span>
+<span class="hljs-comment">// first time for this instance of Once. In other words, given</span>
+<span class="hljs-comment">//     var once Once</span>
+<span class="hljs-comment">// if once.Do(f) is called multiple times, only the first call will invoke f,</span>
+<span class="hljs-comment">// even if f has a different value in each invocation. A new instance of</span>
+<span class="hljs-comment">// Once is required for each function to execute.</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// Do is intended for initialization that must be run exactly once. Since f</span>
+<span class="hljs-comment">// is niladic, it may be necessary to use a function literal to capture the</span>
+<span class="hljs-comment">// arguments to a function to be invoked by Do:</span>
+<span class="hljs-comment">//     config.once.Do(func() { config.init(filename) })</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// Because no call to Do returns until the one call to f returns, if f causes</span>
+<span class="hljs-comment">// Do to be called, it will deadlock.</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// If f panics, Do considers it to have returned; future calls of Do return</span>
+<span class="hljs-comment">// without calling f.</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-keyword">func</span> (o *Once) Do(f <span class="hljs-keyword">func</span>()) {
+    <span class="hljs-comment">// Note: Here is an incorrect implementation of Do:</span>
+    <span class="hljs-comment">//</span>
+    <span class="hljs-comment">//    if atomic.CompareAndSwapUint32(&amp;o.done, 0, 1) {</span>
+    <span class="hljs-comment">//        f()</span>
+    <span class="hljs-comment">//    }</span>
+    <span class="hljs-comment">//</span>
+    <span class="hljs-comment">// Do guarantees that when it returns, f has finished.</span>
+    <span class="hljs-comment">// This implementation would not implement that guarantee:</span>
+    <span class="hljs-comment">// given two simultaneous calls, the winner of the cas would</span>
+    <span class="hljs-comment">// call f, and the second would return immediately, without</span>
+    <span class="hljs-comment">// waiting for the first&apos;s call to f to complete.</span>
+    <span class="hljs-comment">// This is why the slow path falls back to a mutex, and why</span>
+    <span class="hljs-comment">// the atomic.StoreUint32 must be delayed until after f returns.</span>
+
+    <span class="hljs-keyword">if</span> atomic.LoadUint32(&amp;o.done) == <span class="hljs-number">0</span> {
+        <span class="hljs-comment">// Outlined slow-path to allow inlining of the fast-path.</span>
+        o.doSlow(f)
+    }
+}
+
+<span class="hljs-keyword">func</span> (o *Once) doSlow(f <span class="hljs-keyword">func</span>()) {
+    o.m.Lock()
+    <span class="hljs-keyword">defer</span> o.m.Unlock()
+    <span class="hljs-keyword">if</span> o.done == <span class="hljs-number">0</span> {
+        <span class="hljs-keyword">defer</span> atomic.StoreUint32(&amp;o.done, <span class="hljs-number">1</span>)
+        f()
+    }
+}
+</code></pre>
+<p>&#x629B;&#x53BB;&#x5927;&#x6BB5;&#x7684;&#x6CE8;&#x91CA;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230; sync.Once &#x5B9E;&#x73B0;&#x975E;&#x5E38;&#x7B80;&#x6D01;&#x3002;Do() &#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x901A;&#x8FC7;&#x5BF9;&#x6210;&#x5458;&#x53D8;&#x91CF; done &#x7684;&#x5224;&#x65AD;&#xFF0C;&#x6765;&#x51B3;&#x5B9A;&#x662F;&#x5426;&#x6267;&#x884C;&#x4F20;&#x5165;&#x7684;&#x4EFB;&#x52A1;&#x51FD;&#x6570;&#x3002;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x51FD;&#x6570;&#x524D;&#xFF0C;&#x901A;&#x8FC7;&#x9501;&#x4FDD;&#x8BC1;&#x4EFB;&#x52A1;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x548C; done &#x7684;&#x4FEE;&#x6539;&#x662F;&#x4E00;&#x4E2A;&#x4E92;&#x65A5;&#x64CD;&#x4F5C;&#x3002;&#x5728;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x51FD;&#x6570;&#x524D;&#xFF0C;&#x5BF9; done &#x505A;&#x4E00;&#x4E2A;&#x4E8C;&#x6B21;&#x5224;&#x65AD;&#xFF0C;&#x6765;&#x4FDD;&#x8BC1;&#x4EFB;&#x52A1;&#x51FD;&#x6570;&#x53EA;&#x4F1A;&#x88AB;&#x6267;&#x884C;&#x4E00;&#x6B21;&#xFF0C;done &#x53EA;&#x4F1A;&#x88AB;&#x4FEE;&#x6539;&#x4E00;&#x6B21;&#x3002;</p>
+<h2 id="22-done-&#x4E3A;&#x4EC0;&#x4E48;&#x662F;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#xFF1F;">2.2 done &#x4E3A;&#x4EC0;&#x4E48;&#x662F;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#xFF1F;</h2>
+<p>&#x4ECE;&#x5B57;&#x6BB5; done &#x524D;&#x6709;&#x4E00;&#x6BB5;&#x6CE8;&#x91CA;&#xFF0C;&#x8BF4;&#x660E;&#x4E86;done &#x4E3A;&#x4EC0;&#x4E48;&#x662F;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#x3002;</p>
+<p>done &#x5728;&#x70ED;&#x8DEF;&#x5F84;&#x4E2D;&#xFF0C;done &#x653E;&#x5728;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#xFF0C;&#x80FD;&#x591F;&#x51CF;&#x5C11; CPU &#x6307;&#x4EE4;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x8FD9;&#x6837;&#x505A;&#x80FD;&#x591F;&#x63D0;&#x5347;&#x6027;&#x80FD;&#x3002;</p>
+<p>&#x70ED;&#x8DEF;&#x5F84;&#xFF08;hot path&#xFF09;&#x662F;&#x7A0B;&#x5E8F;&#x975E;&#x5E38;&#x9891;&#x7E41;&#x6267;&#x884C;&#x7684;&#x4E00;&#x7CFB;&#x5217;&#x6307;&#x4EE4;&#xFF0C;sync.Once &#x7EDD;&#x5927;&#x90E8;&#x5206;&#x573A;&#x666F;&#x90FD;&#x4F1A;&#x8BBF;&#x95EE; o.done&#xFF0C;&#x5728;&#x70ED;&#x8DEF;&#x5F84;&#x4E0A;&#x662F;&#x6BD4;&#x8F83;&#x597D;&#x7406;&#x89E3;&#x7684;&#x3002;&#x5982;&#x679C; hot path &#x7F16;&#x8BD1;&#x540E;&#x7684;&#x673A;&#x5668;&#x7801;&#x6307;&#x4EE4;&#x66F4;&#x5C11;&#xFF0C;&#x66F4;&#x76F4;&#x63A5;&#xFF0C;&#x5FC5;&#x7136;&#x662F;&#x80FD;&#x591F;&#x63D0;&#x5347;&#x6027;&#x80FD;&#x7684;&#x3002;</p>
+<p>&#x4E3A;&#x4EC0;&#x4E48;&#x653E;&#x5728;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#x5C31;&#x80FD;&#x591F;&#x51CF;&#x5C11;&#x6307;&#x4EE4;&#x5462;&#xFF1F;&#x56E0;&#x4E3A;&#x7ED3;&#x6784;&#x4F53;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#x7684;&#x5730;&#x5740;&#x548C;&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x6307;&#x9488;&#x662F;&#x76F8;&#x540C;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#xFF0C;&#x76F4;&#x63A5;&#x5BF9;&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x6307;&#x9488;&#x89E3;&#x5F15;&#x7528;&#x5373;&#x53EF;&#x3002;&#x5982;&#x679C;&#x662F;&#x5176;&#x4ED6;&#x7684;&#x5B57;&#x6BB5;&#xFF0C;&#x9664;&#x4E86;&#x7ED3;&#x6784;&#x4F53;&#x6307;&#x9488;&#x5916;&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x8BA1;&#x7B97;&#x4E0E;&#x7B2C;&#x4E00;&#x4E2A;&#x503C;&#x7684;&#x504F;&#x79FB;&#xFF08;calculate offset&#xFF09;&#x3002;&#x5728;&#x673A;&#x5668;&#x7801;&#x4E2D;&#xFF0C;&#x504F;&#x79FB;&#x91CF;&#x662F;&#x968F;&#x6307;&#x4EE4;&#x4F20;&#x9012;&#x7684;&#x9644;&#x52A0;&#x503C;&#xFF0C;CPU &#x9700;&#x8981;&#x505A;&#x4E00;&#x6B21;&#x504F;&#x79FB;&#x503C;&#x4E0E;&#x6307;&#x9488;&#x7684;&#x52A0;&#x6CD5;&#x8FD0;&#x7B97;&#xFF0C;&#x624D;&#x80FD;&#x83B7;&#x53D6;&#x8981;&#x8BBF;&#x95EE;&#x7684;&#x503C;&#x7684;&#x5730;&#x5740;&#x3002;&#x56E0;&#x4E3A;&#xFF0C;&#x8BBF;&#x95EE;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#x7684;&#x673A;&#x5668;&#x4EE3;&#x7801;&#x66F4;&#x7D27;&#x51D1;&#xFF0C;&#x901F;&#x5EA6;&#x66F4;&#x5FEB;&#x3002;</p>
+<blockquote>
+<p>&#x53C2;&#x8003; <a href="https://stackoverflow.com/questions/59174176/what-does-hot-path-mean-in-the-context-of-sync-once" target="_blank">What does &#x201C;hot path&#x201D; mean in the context of sync.Once? - StackOverflow</a></p>
+</blockquote>
+<h1 id="3&#x6027;&#x80FD;&#x5DEE;&#x5F02;">3.&#x6027;&#x80FD;&#x5DEE;&#x5F02;</h1>
+<p>&#x6211;&#x4EEC;&#x4EE5;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x793A;&#x4F8B;&#xFF0C;&#x6765;&#x8BF4;&#x660E;&#x4F7F;&#x7528; sync.Once &#x4FDD;&#x8BC1;&#x51FD;&#x6570;&#x53EA;&#x4F1A;&#x88AB;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x548C;&#x591A;&#x6B21;&#x6267;&#x884C;&#xFF0C;&#x4E8C;&#x8005;&#x7684;&#x6027;&#x80FD;&#x5DEE;&#x5F02;&#x3002;</p>
+<p>&#x8003;&#x8651;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x573A;&#x666F;&#xFF0C;&#x51FD;&#x6570; ReadConfig &#x9700;&#x8981;&#x8BFB;&#x53D6;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x5E76;&#x8F6C;&#x6362;&#x4E3A;&#x5BF9;&#x5E94;&#x7684;&#x914D;&#x7F6E;&#x3002;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x5728;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#x524D;&#x5DF2;&#x7ECF;&#x786E;&#x5B9A;&#xFF0C;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x4E0D;&#x4F1A;&#x53D1;&#x751F;&#x6539;&#x53D8;&#x3002;ReadConfig &#x53EF;&#x80FD;&#x4F1A;&#x88AB;&#x591A;&#x4E2A;&#x534F;&#x7A0B;&#x5E76;&#x53D1;&#x8C03;&#x7528;&#xFF0C;&#x4E3A;&#x4E86;&#x63D0;&#x5347;&#x6027;&#x80FD;&#xFF08;&#x51CF;&#x5C11;&#x6267;&#x884C;&#x65F6;&#x95F4;&#x548C;&#x5185;&#x5B58;&#x5360;&#x7528;&#xFF09;&#xFF0C;&#x4F7F;&#x7528; sync.Once &#x662F;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x597D;&#x7684;&#x65B9;&#x5F0F;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> Config <span class="hljs-keyword">struct</span> {
+    GoRoot <span class="hljs-keyword">string</span>
+    GoPath <span class="hljs-keyword">string</span>
+}
+
+<span class="hljs-keyword">var</span> (
+    once   sync.Once
+    config *Config
+)
+
+<span class="hljs-keyword">func</span> ReadConfigWithOnce() *Config {
+    once.Do(<span class="hljs-keyword">func</span>() {
+        config = &amp;Config{
+            GoRoot: os.Getenv(<span class="hljs-string">&quot;GOROOT&quot;</span>),
+            GoPath: os.Getenv(<span class="hljs-string">&quot;GOPATH&quot;</span>),
+        }
+    })
+    <span class="hljs-keyword">return</span> config
+}
+
+<span class="hljs-keyword">func</span> ReadConfig() *Config {
+    <span class="hljs-keyword">return</span> &amp;Config{
+        GoRoot: os.Getenv(<span class="hljs-string">&quot;GOROOT&quot;</span>),
+        GoPath: os.Getenv(<span class="hljs-string">&quot;GOPATH&quot;</span>),
+    }
+}
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x770B;&#x4E0B;&#x4E8C;&#x8005;&#x7684;&#x6027;&#x80FD;&#x5DEE;&#x5F02;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> BenchmarkReadConfigWithOnce(b *testing.B) {
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; b.N; i++ {
+        _ = ReadConfigWithOnce()
+    }
+}
+
+<span class="hljs-keyword">func</span> BenchmarkReadConfig(b *testing.B) {
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; b.N; i++ {
+        _ = ReadConfig()
+    }
+}
+</code></pre>
+<p>&#x6267;&#x884C;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-shell">go test -bench=. main/once
+goos: darwin
+goarch: amd64
+pkg: main/once
+cpu: Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz
+BenchmarkReadConfigWithOnce-12          670438965                1.732 ns/op
+BenchmarkReadConfig-12                  13339154                87.46 ns/op
+PASS
+ok      main/once       3.006s
+</code></pre>
+<p>sync.Once &#x4E2D;&#x4FDD;&#x8BC1;&#x4E86; Config &#x521D;&#x59CB;&#x5316;&#x51FD;&#x6570;&#x4EC5;&#x6267;&#x884C;&#x4E86;&#x4E00;&#x6B21;&#xFF0C;&#x907F;&#x514D;&#x4E86;&#x591A;&#x6B21;&#x91CD;&#x590D;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x5728;&#x5E76;&#x53D1;&#x73AF;&#x5883;&#x4E0B;&#x5F88;&#x6709;&#x7528;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="2.限制协程数量.html" class="navigation navigation-prev " aria-label="Previous page: 2.限制协程数量">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="4.使用sync.Cond通知协程.html" class="navigation navigation-next " aria-label="Next page: 4.使用 sync.Cond 通知协程">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"3.使用 sync.Once 避免重复执行","level":"1.5.4.3","depth":3,"next":{"title":"4.使用 sync.Cond 通知协程","level":"1.5.4.4","depth":3,"path":"第四篇：最佳性能/3.并发编程/4.使用sync.Cond通知协程.md","ref":"第四篇：最佳性能/3.并发编程/4.使用sync.Cond通知协程.md","articles":[]},"previous":{"title":"2.限制协程数量","level":"1.5.4.2","depth":3,"path":"第四篇：最佳性能/3.并发编程/2.限制协程数量.md","ref":"第四篇：最佳性能/3.并发编程/2.限制协程数量.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["insert-logo","splitter","disqus","livereload"],"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"go-coding-advice"},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 100px;","url":"./images/logo.jpg"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"第四篇：最佳性能/3.并发编程/3.使用sync.Once避免重复执行.md","mtime":"2022-05-07T13:02:49.997Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-17T12:28:57.179Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

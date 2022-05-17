@@ -1,8 +1,12 @@
 {
-  "plugins": ["expandable-chapters","splitter","-search","disqus"],
+  "plugins": ["insert-logo","splitter","disqus"],
   "pluginsConfig": {
+    "insert-logo":{
+      "url": "./images/logo.jpg",
+      "style": "background: none; max-height: 100px;"
+    },
     "disqus": {
-      "shortName": "dablelv"
+      "shortName": "go-coding-advice"
     }
   }
 }
