@@ -1,12 +1,30 @@
 {
-  "plugins": ["insert-logo","splitter","disqus"],
-  "pluginsConfig": {
+  "title":"Go 编码建议",
+  "links" : {
+    "sidebar" : {
+      "个人站点":"https://dablelv.github.io/dablelvweb",
+      "CSDN 主页":"https://dablelv.blog.csdn.net",
+      "GitHub 主页":"https://github.com/dablelv",
+      "本书 GitHub 地址 ":"https://github.com/dablelv/go-coding-advice"
+    }
+  },
+  "plugins": ["insert-logo","custom-favicon","splitter","disqus","pageview-count","tbfed-pagefooter","github","ancre-navigation","code"],
+  "pluginsConfig":{
     "insert-logo":{
-      "url": "./images/logo.jpg",
+      "url": "assets/images/logo.jpg",
       "style": "background: none; max-height: 100px;"
     },
     "disqus": {
       "shortName": "go-coding-advice"
+    },
+    "favicon": "assets/images/favicon.ico",
+    "tbfed-pagefooter": {
+      "copyright":"Copyright@Dablelv",
+      "modify_label": "该文章修订时间：",
+      "modify_format": "YYYY-MM-DD HH:mm:ss"
+    },
+    "github": {
+      "url": "https://github.com/dablelv/go-coding-advice"
     }
   }
 }

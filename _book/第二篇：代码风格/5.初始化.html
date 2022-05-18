@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>5.初始化 · GitBook</title>
+        <title>5.初始化 · Go 编码建议</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -26,6 +26,22 @@
             
                 
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
                 
             
                 
@@ -94,7 +110,31 @@
 <ul class="summary">
     
     
+    
+        
+        <li>
+            <a href="https://dablelv.github.io/dablelvweb" target="_blank" class="custom-link">个人站点</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://dablelv.blog.csdn.net" target="_blank" class="custom-link">CSDN 主页</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://github.com/dablelv" target="_blank" class="custom-link">GitHub 主页</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://github.com/dablelv/go-coding-advice" target="_blank" class="custom-link">本书 GitHub 地址 </a>
+        </li>
+    
+    
 
+    
+    <li class="divider"></li>
     
 
     
@@ -965,7 +1005,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x521D;&#x59CB;&#x5316;-struct">&#x521D;&#x59CB;&#x5316; struct</h1>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#&#x521D;&#x59CB;&#x5316;-struct"><b></b>&#x521D;&#x59CB;&#x5316; struct</a></li><li><span class="title-icon "></span><a href="#&#x521D;&#x59CB;&#x5316;-map"><b></b>&#x521D;&#x59CB;&#x5316; map</a></li><li><span class="title-icon "></span><a href="#&#x521D;&#x59CB;&#x5316;-slice"><b></b>&#x521D;&#x59CB;&#x5316; slice</a></li><li><span class="title-icon "></span><a href="#&#x7533;&#x660E;&#x53D8;&#x91CF;"><b></b>&#x7533;&#x660E;&#x53D8;&#x91CF;</a></li><li><span class="title-icon "></span><a href="#&#x907F;&#x514D;&#x4F7F;&#x7528;-init"><b></b>&#x907F;&#x514D;&#x4F7F;&#x7528; init()</a></li></ul></div><a href="#&#x521D;&#x59CB;&#x5316;-struct" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x521D;&#x59CB;&#x5316;-struct"><a name="&#x521D;&#x59CB;&#x5316;-struct" class="anchor-navigation-ex-anchor" href="#&#x521D;&#x59CB;&#x5316;-struct"><i class="fa fa-link" aria-hidden="true"></i></a>&#x521D;&#x59CB;&#x5316; struct</h1>
 <ul>
 <li>&#x4F7F;&#x7528;&#x5B57;&#x6BB5;&#x540D;&#x521D;&#x59CB;&#x5316;&#x7ED3;&#x6784;&#x4F53;&#x3002;
 ```go
@@ -1038,7 +1078,7 @@ sval := T{Name: <span class="hljs-string">&quot;foo&quot;</span>}
 
 sptr := &amp;T{Name: <span class="hljs-string">&quot;bar&quot;</span>}
 </code></pre>
-<h1 id="&#x521D;&#x59CB;&#x5316;-map">&#x521D;&#x59CB;&#x5316; map</h1>
+<h1 id="&#x521D;&#x59CB;&#x5316;-map"><a name="&#x521D;&#x59CB;&#x5316;-map" class="anchor-navigation-ex-anchor" href="#&#x521D;&#x59CB;&#x5316;-map"><i class="fa fa-link" aria-hidden="true"></i></a>&#x521D;&#x59CB;&#x5316; map</h1>
 <p>&#x521D;&#x59CB;&#x5316; map &#x4F18;&#x5148;&#x4F7F;&#x7528; make() &#x51FD;&#x6570;&#x800C;&#x4E0D;&#x662F;&#x5B57;&#x9762;&#x91CF;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x6837;&#x770B;&#x8D77;&#x6765;&#x66F4;&#x5BB9;&#x6613;&#x548C;&#x7533;&#x660E;&#x533A;&#x5206;&#x5F00;&#x6765;&#x3002;</p>
 <pre><code class="lang-go"><span class="hljs-comment">// Bad</span>
 <span class="hljs-keyword">var</span> (
@@ -1073,7 +1113,7 @@ m := <span class="hljs-keyword">map</span>[T1]T2{
   k3: v3,
 }
 </code></pre>
-<h1 id="&#x521D;&#x59CB;&#x5316;-slice">&#x521D;&#x59CB;&#x5316; slice</h1>
+<h1 id="&#x521D;&#x59CB;&#x5316;-slice"><a name="&#x521D;&#x59CB;&#x5316;-slice" class="anchor-navigation-ex-anchor" href="#&#x521D;&#x59CB;&#x5316;-slice"><i class="fa fa-link" aria-hidden="true"></i></a>&#x521D;&#x59CB;&#x5316; slice</h1>
 <ul>
 <li>&#x975E;&#x96F6;&#x503C; slice &#x4F7F;&#x7528;<code>make()</code>&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x5E76;&#x6307;&#x5B9A;&#x5BB9;&#x91CF;&#x3002;
 ```go
@@ -1147,7 +1187,7 @@ nums := []<span class="hljs-keyword">int</span>{}
 }
 </code></pre>
 <p>&#x8BB0;&#x4F4F;&#xFF0C;&#x867D;&#x7136; nil &#x5207;&#x7247;&#x662F;&#x6709;&#x6548;&#x7684;&#x5207;&#x7247;&#xFF0C;&#x4F46;&#x5B83;&#x4E0D;&#x7B49;&#x4E8E;&#x957F;&#x5EA6;&#x4E3A; 0 &#x7684;&#x5207;&#x7247;&#xFF08;&#x4E00;&#x4E2A;&#x4E3A; nil&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x4E0D;&#x662F;&#xFF09;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF08;&#x4F8B;&#x5982;&#x5E8F;&#x5217;&#x5316;&#xFF09;&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x5207;&#x7247;&#x7684;&#x5904;&#x7406;&#x65B9;&#x5F0F;&#x53EF;&#x80FD;&#x4E0D;&#x540C;&#x3002;</p>
-<h1 id="&#x7533;&#x660E;&#x53D8;&#x91CF;">&#x7533;&#x660E;&#x53D8;&#x91CF;</h1>
+<h1 id="&#x7533;&#x660E;&#x53D8;&#x91CF;"><a name="&#x7533;&#x660E;&#x53D8;&#x91CF;" class="anchor-navigation-ex-anchor" href="#&#x7533;&#x660E;&#x53D8;&#x91CF;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7533;&#x660E;&#x53D8;&#x91CF;</h1>
 <ul>
 <li>&#x5C31;&#x8FD1;&#x7533;&#x660E;&#xFF1A;&#x53D8;&#x91CF;&#x7533;&#x660E;&#x7684;&#x4F4D;&#x7F6E;&#x5C3D;&#x91CF;&#x9760;&#x8FD1;&#x4F7F;&#x7528;&#x7684;&#x5730;&#x65B9;&#x3002;
 ```go
@@ -1295,7 +1335,7 @@ func foo() {
 </code></pre><ul>
 <li>&#x5982;&#x679C;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x4EC5;&#x5728;&#x5355;&#x4E2A;&#x51FD;&#x6570;&#x5185;&#x4F7F;&#x7528;&#xFF0C;&#x5219;&#x5E94;&#x8BE5;&#x5B9A;&#x4E49;&#x4E3A;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x3002;</li>
 </ul>
-<h1 id="&#x907F;&#x514D;&#x4F7F;&#x7528;-init">&#x907F;&#x514D;&#x4F7F;&#x7528; init()</h1>
+<h1 id="&#x907F;&#x514D;&#x4F7F;&#x7528;-init"><a name="&#x907F;&#x514D;&#x4F7F;&#x7528;-init" class="anchor-navigation-ex-anchor" href="#&#x907F;&#x514D;&#x4F7F;&#x7528;-init"><i class="fa fa-link" aria-hidden="true"></i></a>&#x907F;&#x514D;&#x4F7F;&#x7528; init()</h1>
 <p>&#x5C3D;&#x53EF;&#x80FD;&#x907F;&#x514D;&#x4F7F;&#x7528; init()&#xFF0C;&#x5F53; init() &#x4E0D;&#x53EF;&#x907F;&#x514D;&#x65F6;&#xFF0C;init() &#x5E94;&#x8BE5;&#x505A;&#x5230;&#xFF1A;
 &#xFF08;1&#xFF09;&#x65E0;&#x8BBA;&#x7A0B;&#x5E8F;&#x73AF;&#x5883;&#x6216;&#x8C03;&#x7528;&#x5982;&#x4F55;&#xFF0C;&#x884C;&#x4E3A;&#x90FD;&#x5FC5;&#x987B;&#x662F;&#x5B8C;&#x5168;&#x786E;&#x5B9A;&#x7684;&#xFF1B;
 &#xFF08;2&#xFF09;&#x907F;&#x514D;&#x4F9D;&#x8D56;&#x5176;&#x4ED6; init() &#x51FD;&#x6570;&#x7684;&#x987A;&#x5E8F;&#x6216;&#x526F;&#x4F5C;&#x7528;&#x3002;&#x867D;&#x7136; init() &#x987A;&#x5E8F;&#x662F;&#x660E;&#x786E;&#x7684;&#xFF0C;&#x4F46;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x66F4;&#x6539;&#xFF0C; &#x56E0;&#x6B64; init() &#x51FD;&#x6570;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x53EF;&#x80FD;&#x4F1A;&#x4F7F;&#x4EE3;&#x7801;&#x53D8;&#x5F97;&#x8106;&#x5F31;&#x548C;&#x5BB9;&#x6613;&#x51FA;&#x9519;&#xFF1B;
@@ -1359,8 +1399,10 @@ func foo() {
 <p>&#x51E1;&#x4E8B;&#x65E0;&#x7EDD;&#x5BF9;&#xFF0C;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;init() &#x53EF;&#x80FD;&#x66F4;&#x53EF;&#x53D6;&#x6216;&#x662F;&#x5FC5;&#x8981;&#x7684;&#xFF1A;</p>
 <p>&#xFF08;1&#xFF09;&#x4E0D;&#x80FD;&#x8868;&#x793A;&#x4E3A;&#x5355;&#x4E2A;&#x8D4B;&#x503C;&#x7684;&#x590D;&#x6742;&#x8868;&#x8FBE;&#x5F0F;&#xFF1B;</p>
 <p>&#xFF08;2&#xFF09;&#x53EF;&#x63D2;&#x5165;&#x7684;&#x94A9;&#x5B50;&#xFF0C;&#x5982; database/sql&#x3001;&#x7F16;&#x7801;&#x7C7B;&#x578B;&#x6CE8;&#x518C;&#x8868;&#x7B49;&#xFF1B;</p>
-<p>&#xFF08;3&#xFF09;&#x5BF9; <a href="https://cloud.google.com/functions/docs/bestpractices/tips#use_global_variables_to_reuse_objects_in_future_invocations" target="_blank">Google Cloud Functions</a> &#x548C;&#x5176;&#x4ED6;&#x5F62;&#x5F0F;&#x7684;&#x786E;&#x5B9A;&#x6027;&#x9884;&#x8BA1;&#x7B97;&#x7684;&#x4F18;&#x5316;&#x3002;</p>
-
+<p>&#xFF08;3&#xFF09;&#x5BF9; <a href="https://cloud.google.com/functions/docs/bestpractices/tips#use_global_variables_to_reuse_objects_in_future_invocations" target="_blank">Google Cloud Functions</a> &#x548C;&#x5176;&#x4ED6;&#x5F62;&#x5F0F;&#x7684;&#x786E;&#x5B9A;&#x6027;&#x9884;&#x8BA1;&#x7B97;&#x7684;&#x4F18;&#x5316;&#x3002; </p>
+<footer class="page-footer"><span class="copyright">Copyright@Dablelv all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x7AE0;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2022-05-16 19:19:10
+</span></footer>
                                 
                                 </section>
                             
@@ -1403,7 +1445,7 @@ func foo() {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.初始化","level":"1.3.5","depth":2,"next":{"title":"6.错误处理","level":"1.3.6","depth":2,"path":"第二篇：代码风格/6.错误处理.md","ref":"第二篇：代码风格/6.错误处理.md","articles":[]},"previous":{"title":"4.依赖管理","level":"1.3.4","depth":2,"path":"第二篇：代码风格/4.依赖管理.md","ref":"第二篇：代码风格/4.依赖管理.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["insert-logo","splitter","disqus","livereload"],"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"go-coding-advice"},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 100px;","url":"./images/logo.jpg"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"第二篇：代码风格/5.初始化.md","mtime":"2022-05-16T11:19:10.251Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-17T12:28:57.179Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.初始化","level":"1.3.5","depth":2,"next":{"title":"6.错误处理","level":"1.3.6","depth":2,"path":"第二篇：代码风格/6.错误处理.md","ref":"第二篇：代码风格/6.错误处理.md","articles":[]},"previous":{"title":"4.依赖管理","level":"1.3.4","depth":2,"path":"第二篇：代码风格/4.依赖管理.md","ref":"第二篇：代码风格/4.依赖管理.md","articles":[]},"dir":"ltr"},"config":{"plugins":["insert-logo","custom-favicon","splitter","disqus","pageview-count","tbfed-pagefooter","github","ancre-navigation","code","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright@Dablelv","modify_label":"该文章修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"disqus":{"useIdentifier":false,"shortName":"go-coding-advice"},"github":{"url":"https://github.com/dablelv/go-coding-advice"},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"assets/images/favicon.ico","pageview-count":{},"custom-favicon":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 100px;","url":"assets/images/logo.jpg"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Go 编码建议","links":{"sidebar":{"个人站点":"https://dablelv.github.io/dablelvweb","CSDN 主页":"https://dablelv.blog.csdn.net","GitHub 主页":"https://github.com/dablelv","本书 GitHub 地址 ":"https://github.com/dablelv/go-coding-advice"}},"gitbook":"*"},"file":{"path":"第二篇：代码风格/5.初始化.md","mtime":"2022-05-16T11:19:10.251Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-18T07:51:57.082Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1426,6 +1468,18 @@ func foo() {
     
         
         <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
         
     
         

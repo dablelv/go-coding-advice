@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>2.代码行 · GitBook</title>
+        <title>2.代码行 · Go 编码建议</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -26,6 +26,22 @@
             
                 
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
                 
             
                 
@@ -94,7 +110,31 @@
 <ul class="summary">
     
     
+    
+        
+        <li>
+            <a href="https://dablelv.github.io/dablelvweb" target="_blank" class="custom-link">个人站点</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://dablelv.blog.csdn.net" target="_blank" class="custom-link">CSDN 主页</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://github.com/dablelv" target="_blank" class="custom-link">GitHub 主页</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://github.com/dablelv/go-coding-advice" target="_blank" class="custom-link">本书 GitHub 地址 </a>
+        </li>
+    
+    
 
+    
+    <li class="divider"></li>
     
 
     
@@ -965,7 +1005,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x884C;&#x957F;&#x5EA6;">&#x884C;&#x957F;&#x5EA6;</h1>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#&#x884C;&#x957F;&#x5EA6;"><b></b>&#x884C;&#x957F;&#x5EA6;</a></li><li><span class="title-icon "></span><a href="#&#x6362;&#x884C;&#x65B9;&#x5F0F;"><b></b>&#x6362;&#x884C;&#x65B9;&#x5F0F;</a></li><li><span class="title-icon "></span><a href="#&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x7A7A;&#x884C;"><b></b>&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x7A7A;&#x884C;</a></li><li><span class="title-icon "></span><a href="#&#x62EC;&#x53F7;&#x548C;&#x7A7A;&#x683C;"><b></b>&#x62EC;&#x53F7;&#x548C;&#x7A7A;&#x683C;</a></li><li><span class="title-icon "></span><a href="#&#x884C;&#x6570;"><b></b>&#x884C;&#x6570;</a></li></ul></div><a href="#&#x884C;&#x957F;&#x5EA6;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x884C;&#x957F;&#x5EA6;"><a name="&#x884C;&#x957F;&#x5EA6;" class="anchor-navigation-ex-anchor" href="#&#x884C;&#x957F;&#x5EA6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x884C;&#x957F;&#x5EA6;</h1>
 <p>&#x4E00;&#x884C;&#x4EE3;&#x7801;&#x4E0D;&#x8981;&#x8D85;&#x8FC7;<strong>120</strong>&#x5217;&#xFF0C;&#x8D85;&#x8FC7;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x4F7F;&#x7528;&#x5408;&#x7406;&#x7684;&#x65B9;&#x6CD5;&#x6362;&#x884C;&#x3002;</p>
 <p>&#x4F8B;&#x5916;&#x573A;&#x666F;&#xFF1A;</p>
 <ul>
@@ -973,7 +1013,7 @@
 <li>struct tag</li>
 <li>&#x5DE5;&#x5177;&#x751F;&#x6210;&#x7684;&#x4EE3;&#x7801;</li>
 </ul>
-<h1 id="&#x6362;&#x884C;&#x65B9;&#x5F0F;">&#x6362;&#x884C;&#x65B9;&#x5F0F;</h1>
+<h1 id="&#x6362;&#x884C;&#x65B9;&#x5F0F;"><a name="&#x6362;&#x884C;&#x65B9;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#&#x6362;&#x884C;&#x65B9;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6362;&#x884C;&#x65B9;&#x5F0F;</h1>
 <p>&#x91C7;&#x7528;&#x60F0;&#x6027;&#x6362;&#x884C;&#xFF0C;&#x6362;&#x884C;&#x524D;&#x5E94;&#x5C3D;&#x53EF;&#x80FD;&#x5360;&#x6EE1;&#x5F53;&#x524D;&#x884C;&#x4E0D;&#x7559;&#x7A7A;&#x4F4D;&#x3002;</p>
 <pre><code class="lang-go"><span class="hljs-comment">// Bad</span>
 fmt.Printf(<span class="hljs-string">&quot;%v %v %v %v %v %v %v %v %v %v %v %v %v %v\n&quot;</span>,
@@ -983,7 +1023,7 @@ fmt.Printf(<span class="hljs-string">&quot;%v %v %v %v %v %v %v %v %v %v %v %v %
 fmt.Printf(<span class="hljs-string">&quot;%v %v %v %v %v %v %v %v %v %v %v %v %v %v\n&quot;</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">8</span>, <span class="hljs-number">13</span>, <span class="hljs-number">21</span>, <span class="hljs-number">34</span>, <span class="hljs-number">55</span>,
 <span class="hljs-number">89</span>, <span class="hljs-number">144</span>, <span class="hljs-number">233</span>)
 </code></pre>
-<h1 id="&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x7A7A;&#x884C;">&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x7A7A;&#x884C;</h1>
+<h1 id="&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x7A7A;&#x884C;"><a name="&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x7A7A;&#x884C;" class="anchor-navigation-ex-anchor" href="#&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x7A7A;&#x884C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x7A7A;&#x884C;</h1>
 <ul>
 <li><p>&#x51FD;&#x6570;&#x4F53;&#x7B2C;&#x4E00;&#x884C;&#x4E0D;&#x8981;&#x6362;&#x884C;&#x3002;
 ```go
@@ -997,7 +1037,8 @@ func foo() {</p>
 func foo() {
     // func body
 }</p>
-<pre><code>- &#x51FD;&#x6570;&#x8C03;&#x7528;&#x548C;&#x5BF9;&#x8C03;&#x7528;&#x7ED3;&#x679C;&#x7684;&#x5904;&#x7406;&#xFF0C;&#x662F;&#x7D27;&#x5BC6;&#x76F8;&#x8FDE;&#x7684;&#xFF0C;&#x4E0D;&#x80FD;&#x52A0;&#x7A7A;&#x884C;
+<pre><code>
+- &#x51FD;&#x6570;&#x8C03;&#x7528;&#x548C;&#x5BF9;&#x8C03;&#x7528;&#x7ED3;&#x679C;&#x7684;&#x5904;&#x7406;&#xFF0C;&#x662F;&#x7D27;&#x5BC6;&#x76F8;&#x8FDE;&#x7684;&#xFF0C;&#x4E0D;&#x80FD;&#x52A0;&#x7A7A;&#x884C;&#x3002;
 ```go
 // Bad
 res, err := foo()
@@ -1012,47 +1053,52 @@ if err != nil || res.Ret != 0 {
     return
 }
 </code></pre><ul>
-<li><p>return &#x8BED;&#x53E5;&#x524D;&#x4E0D;&#x8981;&#x6362;&#x884C;
-```go
-// Bad
-func foo() {
-  // func body</p>
-<p>  return
-}</p>
+<li>return &#x8BED;&#x53E5;&#x524D;&#x4E0D;&#x8981;&#x6362;&#x884C;&#x3002;</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-comment">// Bad</span>
+<span class="hljs-keyword">func</span> foo() {
+    <span class="hljs-comment">// func body</span>
+
+    <span class="hljs-keyword">return</span>
+}
+
+<span class="hljs-comment">// Good</span>
+<span class="hljs-keyword">func</span> foo() {
+    <span class="hljs-comment">// func body</span>
+    <span class="hljs-keyword">return</span>
+}
+</code></pre>
+<h1 id="&#x62EC;&#x53F7;&#x548C;&#x7A7A;&#x683C;"><a name="&#x62EC;&#x53F7;&#x548C;&#x7A7A;&#x683C;" class="anchor-navigation-ex-anchor" href="#&#x62EC;&#x53F7;&#x548C;&#x7A7A;&#x683C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x62EC;&#x53F7;&#x548C;&#x7A7A;&#x683C;</h1>
+<ul>
+<li>&#x9075;&#x5FAA; gofmt &#x7684;&#x903B;&#x8F91;&#x3002;</li>
+<li>&#x8FD0;&#x7B97;&#x7B26;&#x548C;&#x64CD;&#x4F5C;&#x6570;&#x4E4B;&#x95F4;&#x8981;&#x7559;&#x7A7A;&#x683C;&#x3002;</li>
+<li><p>&#x4F5C;&#x4E3A;&#x8F93;&#x5165;&#x53C2;&#x6570;&#x6216;&#x8005;&#x6570;&#x7EC4;&#x4E0B;&#x6807;&#x65F6;&#xFF0C;&#x8FD0;&#x7B97;&#x7B26;&#x548C;&#x64CD;&#x4F5C;&#x6570;&#x4E4B;&#x95F4;&#x4E0D;&#x9700;&#x8981;&#x7A7A;&#x683C;&#xFF0C;&#x7D27;&#x51D1;&#x5C55;&#x793A;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">var</span> i <span class="hljs-keyword">int</span> = <span class="hljs-number">1</span> + <span class="hljs-number">2</span>                     <span class="hljs-comment">// &#x8FD0;&#x7B97;&#x7B26;&#x548C;&#x64CD;&#x4F5C;&#x6570;&#x4E4B;&#x95F4;&#x8981;&#x7559;&#x7A7A;&#x683C;</span>
+v := []<span class="hljs-keyword">float64</span>{<span class="hljs-number">1.0</span>, <span class="hljs-number">2.0</span>, <span class="hljs-number">3.0</span>}[i-i]  <span class="hljs-comment">// i-i &#x4F5C;&#x4E3A;&#x4E0B;&#x6807;&#x4E0D;&#x7559;&#x7A7A;&#x683C;</span>
+fmt.Printf(<span class="hljs-string">&quot;%f\n&quot;</span>, v+<span class="hljs-number">1</span>)                <span class="hljs-comment">// v+1 &#x4F5C;&#x4E3A;&#x5165;&#x53C2;&#x4E0D;&#x8981;&#x7559;&#x7A7A;&#x683C;</span>
+</code></pre>
+</li>
+<li><p>&#x4E0D;&#x8981;&#x6DFB;&#x52A0;&#x6CA1;&#x5FC5;&#x8981;&#x7684;&#x62EC;&#x53F7;&#x3002;</p>
 </li>
 </ul>
-<p>// Good
-func foo() {
-    // func body
-    return
-}</p>
-<pre><code># &#x62EC;&#x53F7;&#x548C;&#x7A7A;&#x683C;
-- &#x9075;&#x5FAA; gofmt &#x7684;&#x903B;&#x8F91;&#x3002;
-- &#x8FD0;&#x7B97;&#x7B26;&#x548C;&#x64CD;&#x4F5C;&#x6570;&#x4E4B;&#x95F4;&#x8981;&#x7559;&#x7A7A;&#x683C;&#x3002;
-- &#x4F5C;&#x4E3A;&#x8F93;&#x5165;&#x53C2;&#x6570;&#x6216;&#x8005;&#x6570;&#x7EC4;&#x4E0B;&#x6807;&#x65F6;&#xFF0C;&#x8FD0;&#x7B97;&#x7B26;&#x548C;&#x64CD;&#x4F5C;&#x6570;&#x4E4B;&#x95F4;&#x4E0D;&#x9700;&#x8981;&#x7A7A;&#x683C;&#xFF0C;&#x7D27;&#x51D1;&#x5C55;&#x793A;&#x3002;
-```go
-var i int = 1 + 2                     // &#x8FD0;&#x7B97;&#x7B26;&#x548C;&#x64CD;&#x4F5C;&#x6570;&#x4E4B;&#x95F4;&#x8981;&#x7559;&#x7A7A;&#x683C;
-v := []float64{1.0, 2.0, 3.0}[i-i]  // i-i &#x4F5C;&#x4E3A;&#x4E0B;&#x6807;&#x4E0D;&#x7559;&#x7A7A;&#x683C;
-fmt.Printf(&quot;%f\n&quot;, v+1)                // v+1 &#x4F5C;&#x4E3A;&#x5165;&#x53C2;&#x4E0D;&#x8981;&#x7559;&#x7A7A;&#x683C;
-</code></pre><ul>
-<li>&#x4E0D;&#x8981;&#x6DFB;&#x52A0;&#x6CA1;&#x5FC5;&#x8981;&#x7684;&#x62EC;&#x53F7;&#x3002;
-```go
-// Bad
-if foo &amp;&amp; (int(bar) &gt; 0) {
-  // ...
-}</li>
-</ul>
-<p>// Good
-if foo &amp;&amp; int(bar) &gt; 0 {
-    // ...
+<pre><code class="lang-go"><span class="hljs-comment">// Bad</span>
+<span class="hljs-keyword">if</span> foo &amp;&amp; (<span class="hljs-keyword">int</span>(bar) &gt; <span class="hljs-number">0</span>) {
+    <span class="hljs-comment">// ...</span>
 }
-```</p>
-<h1 id="&#x884C;&#x6570;">&#x884C;&#x6570;</h1>
+
+<span class="hljs-comment">// Good</span>
+<span class="hljs-keyword">if</span> foo &amp;&amp; <span class="hljs-keyword">int</span>(bar) &gt; <span class="hljs-number">0</span> {
+    <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<h1 id="&#x884C;&#x6570;"><a name="&#x884C;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x884C;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x884C;&#x6570;</h1>
 <ul>
 <li>&#x51FD;&#x6570;&#x957F;&#x5EA6;&#x4E0D;&#x80FD;&#x8D85;&#x8FC7; 80 &#x884C;&#x3002;</li>
-<li>&#x6587;&#x4EF6;&#x957F;&#x5EA6;&#x4E0D;&#x80FD;&#x8D85;&#x8FC7; 800 &#x884C;&#x3002;</li>
+<li>&#x6587;&#x4EF6;&#x957F;&#x5EA6;&#x4E0D;&#x80FD;&#x8D85;&#x8FC7; 800 &#x884C;&#x3002; </li>
 </ul>
-
+<footer class="page-footer"><span class="copyright">Copyright@Dablelv all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x7AE0;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2022-05-18 15:50:10
+</span></footer>
                                 
                                 </section>
                             
@@ -1095,7 +1141,7 @@ if foo &amp;&amp; int(bar) &gt; 0 {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.代码行","level":"1.3.2","depth":2,"next":{"title":"3.字符串","level":"1.3.3","depth":2,"path":"第二篇：代码风格/3.字符串.md","ref":"第二篇：代码风格/3.字符串.md","articles":[]},"previous":{"title":"1.格式化","level":"1.3.1","depth":2,"path":"第二篇：代码风格/1.格式化.md","ref":"第二篇：代码风格/1.格式化.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["insert-logo","splitter","disqus","livereload"],"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"go-coding-advice"},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 100px;","url":"./images/logo.jpg"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"第二篇：代码风格/2.代码行.md","mtime":"2022-05-07T11:01:50.457Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-17T12:28:57.179Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.代码行","level":"1.3.2","depth":2,"next":{"title":"3.字符串","level":"1.3.3","depth":2,"path":"第二篇：代码风格/3.字符串.md","ref":"第二篇：代码风格/3.字符串.md","articles":[]},"previous":{"title":"1.格式化","level":"1.3.1","depth":2,"path":"第二篇：代码风格/1.格式化.md","ref":"第二篇：代码风格/1.格式化.md","articles":[]},"dir":"ltr"},"config":{"plugins":["insert-logo","custom-favicon","splitter","disqus","pageview-count","tbfed-pagefooter","github","ancre-navigation","code","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright@Dablelv","modify_label":"该文章修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"disqus":{"useIdentifier":false,"shortName":"go-coding-advice"},"github":{"url":"https://github.com/dablelv/go-coding-advice"},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"assets/images/favicon.ico","pageview-count":{},"custom-favicon":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 100px;","url":"assets/images/logo.jpg"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Go 编码建议","links":{"sidebar":{"个人站点":"https://dablelv.github.io/dablelvweb","CSDN 主页":"https://dablelv.blog.csdn.net","GitHub 主页":"https://github.com/dablelv","本书 GitHub 地址 ":"https://github.com/dablelv/go-coding-advice"}},"gitbook":"*"},"file":{"path":"第二篇：代码风格/2.代码行.md","mtime":"2022-05-18T07:50:10.612Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-18T07:51:57.082Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1118,6 +1164,18 @@ if foo &amp;&amp; int(bar) &gt; 0 {
     
         
         <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
         
     
         

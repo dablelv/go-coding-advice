@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>4.字符串拼接方式 · GitBook</title>
+        <title>4.字符串拼接方式 · Go 编码建议</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -26,6 +26,22 @@
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
                 
             
                 
@@ -94,7 +110,31 @@
 <ul class="summary">
     
     
+    
+        
+        <li>
+            <a href="https://dablelv.github.io/dablelvweb" target="_blank" class="custom-link">个人站点</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://dablelv.blog.csdn.net" target="_blank" class="custom-link">CSDN 主页</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://github.com/dablelv" target="_blank" class="custom-link">GitHub 主页</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://github.com/dablelv/go-coding-advice" target="_blank" class="custom-link">本书 GitHub 地址 </a>
+        </li>
+    
+    
 
+    
+    <li class="divider"></li>
     
 
     
@@ -965,7 +1005,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="1&#x884C;&#x5185;&#x5B57;&#x7B26;&#x4E32;&#x62FC;&#x63A5;">1.&#x884C;&#x5185;&#x5B57;&#x7B26;&#x4E32;&#x62FC;&#x63A5;</h1>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#1&#x884C;&#x5185;&#x5B57;&#x7B26;&#x4E32;&#x62FC;&#x63A5;"><b></b>1.&#x884C;&#x5185;&#x5B57;&#x7B26;&#x4E32;&#x62FC;&#x63A5;</a></li><li><span class="title-icon "></span><a href="#2&#x975E;&#x884C;&#x5185;&#x5B57;&#x7B26;&#x4E32;&#x62FC;&#x63A5;"><b></b>2.&#x975E;&#x884C;&#x5185;&#x5B57;&#x7B26;&#x4E32;&#x62FC;&#x63A5;</a></li></ul></div><a href="#1&#x884C;&#x5185;&#x5B57;&#x7B26;&#x4E32;&#x62FC;&#x63A5;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="1&#x884C;&#x5185;&#x5B57;&#x7B26;&#x4E32;&#x62FC;&#x63A5;"><a name="1&#x884C;&#x5185;&#x5B57;&#x7B26;&#x4E32;&#x62FC;&#x63A5;" class="anchor-navigation-ex-anchor" href="#1&#x884C;&#x5185;&#x5B57;&#x7B26;&#x4E32;&#x62FC;&#x63A5;"><i class="fa fa-link" aria-hidden="true"></i></a>1.&#x884C;&#x5185;&#x5B57;&#x7B26;&#x4E32;&#x62FC;&#x63A5;</h1>
 <p>&#x884C;&#x5185;&#x62FC;&#x63A5;&#x5B57;&#x7B26;&#x4E32;&#x4E3A;&#x4E86;&#x4E66;&#x5199;&#x65B9;&#x4FBF;&#x5FEB;&#x6377;&#xFF0C;&#x6700;&#x5E38;&#x7528;&#x7684;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x662F;&#xFF1A;</p>
 <ul>
 <li>&#x8FD0;&#x7B97;&#x7B26;+</li>
@@ -997,7 +1037,7 @@ BenchmarkJoinStrWithOperator-8    70638928    17.53 ns/op     0 B/op    0 allocs
 BenchmarkJoinStrWithSprintf-8      7520017    157.2 ns/op    64 B/op    4 allocs/op
 </code></pre>
 <p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x4E8C;&#x8005;&#x7684;&#x6027;&#x80FD;&#x5DEE;&#x8DDD;&#x5F88;&#x5927;&#xFF0C;&#x5FEB;&#x8FBE;&#x5230;&#x4E00;&#x4E2A;&#x6570;&#x91CF;&#x7EA7;&#x4E86;&#x3002;&#x6240;&#x4EE5;&#x5728;&#x4E0D;&#x5F71;&#x54CD;&#x4EE3;&#x7801;&#x53EF;&#x8BFB;&#x6027;&#x65F6;&#xFF0C;&#x884C;&#x5185;&#x5B57;&#x7B26;&#x4E32;&#x5C3D;&#x53EF;&#x80FD;&#x5730;&#x4F7F;&#x7528;&#x8FD0;&#x7B97;&#x7B26; + &#x6765;&#x62FC;&#x63A5;&#x800C;&#x4E0D;&#x662F;<code>fmt.Sprintf()</code>&#x3002;</p>
-<h1 id="2&#x975E;&#x884C;&#x5185;&#x5B57;&#x7B26;&#x4E32;&#x62FC;&#x63A5;">2.&#x975E;&#x884C;&#x5185;&#x5B57;&#x7B26;&#x4E32;&#x62FC;&#x63A5;</h1>
+<h1 id="2&#x975E;&#x884C;&#x5185;&#x5B57;&#x7B26;&#x4E32;&#x62FC;&#x63A5;"><a name="2&#x975E;&#x884C;&#x5185;&#x5B57;&#x7B26;&#x4E32;&#x62FC;&#x63A5;" class="anchor-navigation-ex-anchor" href="#2&#x975E;&#x884C;&#x5185;&#x5B57;&#x7B26;&#x4E32;&#x62FC;&#x63A5;"><i class="fa fa-link" aria-hidden="true"></i></a>2.&#x975E;&#x884C;&#x5185;&#x5B57;&#x7B26;&#x4E32;&#x62FC;&#x63A5;</h1>
 <p>&#x5B57;&#x7B26;&#x4E32;&#x62FC;&#x63A5;&#x8FD8;&#x6709;&#x5176;&#x4ED6;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x6BD4;&#x5982;<code>strings.Join()</code>&#x3001;<code>strings.Builder</code>&#x3001;<code>bytes.Buffer</code>&#x548C;<code>byte[]</code>&#xFF0C;&#x8FD9;&#x51E0;&#x79CD;&#x4E0D;&#x9002;&#x5408;&#x884C;&#x5185;&#x4F7F;&#x7528;&#x3002;&#x5F53;&#x5F85;&#x62FC;&#x63A5;&#x5B57;&#x7B26;&#x4E32;&#x6570;&#x91CF;&#x8F83;&#x591A;&#x65F6;&#x53EF;&#x8003;&#x8651;&#x4F7F;&#x7528;&#x3002;</p>
 <p>&#x5148;&#x770B;&#x4E0B;&#x5176;&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x7684;&#x5BF9;&#x6BD4;&#x3002;</p>
 <pre><code class="lang-go"><span class="hljs-keyword">func</span> BenchmarkJoinStrWithStringsJoin(b *testing.B) {
@@ -1077,7 +1117,9 @@ BenchmarkJoinStrWithByteSlicePreAlloc-8         665341896               1.813 ns
 <p>&#x4F7F;&#x7528;&#x4E86; Grow &#x4F18;&#x5316;&#x540E;&#x7684;&#x7248;&#x672C;&#x7684;&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#x3002;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x76F8;&#x8F83;&#x4E8E;&#x4E0D;&#x9884;&#x5148;&#x5206;&#x914D;&#x7A7A;&#x95F4;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x6027;&#x80FD;&#x63D0;&#x5347;&#x4E86;&#x5F88;&#x591A;&#x3002;</p>
 <pre><code class="lang-shell">BenchmarkJoinStrWithStringsBuilderPreAlloc-8    60079003                20.95 ns/op
 </code></pre>
-
+<footer class="page-footer"><span class="copyright">Copyright@Dablelv all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x7AE0;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2022-05-12 19:56:05
+</span></footer>
                                 
                                 </section>
                             
@@ -1120,7 +1162,7 @@ BenchmarkJoinStrWithByteSlicePreAlloc-8         665341896               1.813 ns
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.字符串拼接方式","level":"1.5.2.4","depth":3,"next":{"title":"5.[]struct{} 的遍历方式","level":"1.5.2.5","depth":3,"path":"第四篇：最佳性能/1.常用数据结构/5.[]struct{}的遍历方式.md","ref":"第四篇：最佳性能/1.常用数据结构/5.[]struct{}的遍历方式.md","articles":[]},"previous":{"title":"3.指定容器容量","level":"1.5.2.3","depth":3,"path":"第四篇：最佳性能/1.常用数据结构/3.指定容器容量.md","ref":"第四篇：最佳性能/1.常用数据结构/3.指定容器容量.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["insert-logo","splitter","disqus","livereload"],"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"go-coding-advice"},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 100px;","url":"./images/logo.jpg"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"第四篇：最佳性能/1.常用数据结构/4.字符串拼接方式.md","mtime":"2022-05-12T11:56:05.055Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-17T12:28:57.179Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.字符串拼接方式","level":"1.5.2.4","depth":3,"next":{"title":"5.[]struct{} 的遍历方式","level":"1.5.2.5","depth":3,"path":"第四篇：最佳性能/1.常用数据结构/5.[]struct{}的遍历方式.md","ref":"第四篇：最佳性能/1.常用数据结构/5.[]struct{}的遍历方式.md","articles":[]},"previous":{"title":"3.指定容器容量","level":"1.5.2.3","depth":3,"path":"第四篇：最佳性能/1.常用数据结构/3.指定容器容量.md","ref":"第四篇：最佳性能/1.常用数据结构/3.指定容器容量.md","articles":[]},"dir":"ltr"},"config":{"plugins":["insert-logo","custom-favicon","splitter","disqus","pageview-count","tbfed-pagefooter","github","ancre-navigation","code","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright@Dablelv","modify_label":"该文章修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"disqus":{"useIdentifier":false,"shortName":"go-coding-advice"},"github":{"url":"https://github.com/dablelv/go-coding-advice"},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"assets/images/favicon.ico","pageview-count":{},"custom-favicon":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 100px;","url":"assets/images/logo.jpg"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Go 编码建议","links":{"sidebar":{"个人站点":"https://dablelv.github.io/dablelvweb","CSDN 主页":"https://dablelv.blog.csdn.net","GitHub 主页":"https://github.com/dablelv","本书 GitHub 地址 ":"https://github.com/dablelv/go-coding-advice"}},"gitbook":"*"},"file":{"path":"第四篇：最佳性能/1.常用数据结构/4.字符串拼接方式.md","mtime":"2022-05-12T11:56:05.055Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-18T07:51:57.082Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1143,6 +1185,18 @@ BenchmarkJoinStrWithByteSlicePreAlloc-8         665341896               1.813 ns
     
         
         <script src="../../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
         
     
         

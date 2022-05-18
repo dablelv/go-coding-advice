@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>7.注释 · GitBook</title>
+        <title>7.注释 · Go 编码建议</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -26,6 +26,22 @@
             
                 
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
                 
             
                 
@@ -94,7 +110,31 @@
 <ul class="summary">
     
     
+    
+        
+        <li>
+            <a href="https://dablelv.github.io/dablelvweb" target="_blank" class="custom-link">个人站点</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://dablelv.blog.csdn.net" target="_blank" class="custom-link">CSDN 主页</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://github.com/dablelv" target="_blank" class="custom-link">GitHub 主页</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://github.com/dablelv/go-coding-advice" target="_blank" class="custom-link">本书 GitHub 地址 </a>
+        </li>
+    
+    
 
+    
+    <li class="divider"></li>
     
 
     
@@ -965,10 +1005,10 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x5728;&#x7F16;&#x7801;&#x9636;&#x6BB5;&#x540C;&#x6B65;&#x5199;&#x597D;&#x7C7B;&#x578B;&#x3001;&#x53D8;&#x91CF;&#x3001;&#x51FD;&#x6570;&#x3001;&#x5305;&#x6CE8;&#x91CA;&#xFF0C;&#x6CE8;&#x91CA;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>godoc</code>&#x5BFC;&#x51FA;&#x751F;&#x6210;&#x6587;&#x6863;&#x3002;</p>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#&#x901A;&#x7528;"><b></b>&#x901A;&#x7528;</a></li><li><span class="title-icon "></span><a href="#&#x5305;&#x6CE8;&#x91CA;"><b></b>&#x5305;&#x6CE8;&#x91CA;</a></li><li><span class="title-icon "></span><a href="#&#x7ED3;&#x6784;&#x4F53;&#x6CE8;&#x91CA;"><b></b>&#x7ED3;&#x6784;&#x4F53;&#x6CE8;&#x91CA;</a></li><ul><li><span class="title-icon "></span><a href="#&#x53D8;&#x91CF;&#x548C;&#x5E38;&#x91CF;&#x6CE8;&#x91CA;"><b></b>&#x53D8;&#x91CF;&#x548C;&#x5E38;&#x91CF;&#x6CE8;&#x91CA;</a></li><li><span class="title-icon "></span><a href="#&#x7C7B;&#x578B;&#x6CE8;&#x91CA;"><b></b>&#x7C7B;&#x578B;&#x6CE8;&#x91CA;</a></li><li><span class="title-icon "></span><a href="#&#x63A5;&#x53E3;&#x6CE8;&#x91CA;"><b></b>&#x63A5;&#x53E3;&#x6CE8;&#x91CA;</a></li></ul></ul></div><a href="#&#x901A;&#x7528;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><p>&#x5728;&#x7F16;&#x7801;&#x9636;&#x6BB5;&#x540C;&#x6B65;&#x5199;&#x597D;&#x7C7B;&#x578B;&#x3001;&#x53D8;&#x91CF;&#x3001;&#x51FD;&#x6570;&#x3001;&#x5305;&#x6CE8;&#x91CA;&#xFF0C;&#x6CE8;&#x91CA;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>godoc</code>&#x5BFC;&#x51FA;&#x751F;&#x6210;&#x6587;&#x6863;&#x3002;</p>
 <p>&#x7A0B;&#x5E8F;&#x4E2D;&#x6BCF;&#x4E00;&#x4E2A;&#x88AB;&#x5BFC;&#x51FA;&#x7684;&#xFF08;&#x5927;&#x5199;&#x7684;&#xFF09;&#x540D;&#x5B57;&#xFF0C;&#x90FD;&#x5E94;&#x8BE5;&#x6709;&#x4E00;&#x4E2A;&#x6587;&#x6863;&#x6CE8;&#x91CA;&#x3002;</p>
 <p>&#x6240;&#x6709;&#x6CE8;&#x91CA;&#x6389;&#x7684;&#x4EE3;&#x7801;&#x5728;&#x63D0;&#x4EA4; Code Review &#x524D;&#x90FD;&#x5E94;&#x8BE5;&#x88AB;&#x5220;&#x9664;&#xFF0C;&#x9664;&#x975E;&#x6DFB;&#x52A0;&#x6CE8;&#x91CA;&#x8BB2;&#x89E3;&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x5220;&#x9664;&#xFF0C; &#x5E76;&#x4E14;&#x6807;&#x660E;&#x540E;&#x7EED;&#x5904;&#x7406;&#x5EFA;&#x8BAE;&#xFF08;&#x6BD4;&#x5982;&#x5220;&#x9664;&#x8BA1;&#x5212;&#xFF09;&#x3002;</p>
-<h1 id="&#x901A;&#x7528;">&#x901A;&#x7528;</h1>
+<h1 id="&#x901A;&#x7528;"><a name="&#x901A;&#x7528;" class="anchor-navigation-ex-anchor" href="#&#x901A;&#x7528;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x901A;&#x7528;</h1>
 <ul>
 <li>&#x4E0D;&#x8981;&#x7528;&#x6CE8;&#x91CA;&#x5220;&#x9664;&#x4EE3;&#x7801;&#x3002;</li>
 <li>// &#x540E;&#x9762;&#x8981;&#x6709;&#x7A7A;&#x683C;&#x3002;</li>
@@ -976,7 +1016,7 @@
 <li>&#x7279;&#x6B8A;&#x5B9E;&#x73B0;&#x9700;&#x8981;&#x6CE8;&#x91CA;&#x3002;</li>
 <li>&#x6CE8;&#x91CA;&#x7ED3;&#x675F;&#x6DFB;&#x52A0;&#x70B9;&#x6216;&#x53E5;&#x53F7;&#xFF0C;&#x53C2;&#x8003;&#x6807;&#x51C6;&#x5E93;&#x6E90;&#x7801;&#x6CE8;&#x91CA;&#x3002;</li>
 </ul>
-<h1 id="&#x5305;&#x6CE8;&#x91CA;">&#x5305;&#x6CE8;&#x91CA;</h1>
+<h1 id="&#x5305;&#x6CE8;&#x91CA;"><a name="&#x5305;&#x6CE8;&#x91CA;" class="anchor-navigation-ex-anchor" href="#&#x5305;&#x6CE8;&#x91CA;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5305;&#x6CE8;&#x91CA;</h1>
 <ul>
 <li>&#x6BCF;&#x4E2A;&#x5305;&#x90FD;&#x5E94;&#x8BE5;&#x6709;&#x4E00;&#x4E2A;&#x5305;&#x6CE8;&#x91CA;&#x3002;</li>
 <li>&#x5305;&#x5982;&#x679C;&#x6709;&#x591A;&#x4E2A; go &#x6587;&#x4EF6;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x51FA;&#x73B0;&#x5728;&#x4E00;&#x4E2A; go &#x6587;&#x4EF6;&#x4E2D;&#xFF08;&#x4E00;&#x822C;&#x662F;&#x548C;&#x5305;&#x540C;&#x540D;&#x7684;&#x6587;&#x4EF6;&#xFF09;&#x5373;&#x53EF;&#x3002;</li>
@@ -1036,7 +1076,7 @@ printInfo(<span class="hljs-string">&quot;foo&quot;</span>, <span class="hljs-li
 </code></pre>
 <ul>
 <li>&#x975E;&#x5BFC;&#x51FA;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x6CE8;&#x91CA;&#x3002;</li>
-<li>&#x89E3;&#x6790;&#x51FD;&#x6570;&#x5E94;&#x8BE5;&#x6CE8;&#x660E;&#x89E3;&#x6790;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x8303;&#x4F8B;&#xFF0C;&#x5E76;&#x660E;&#x786E;&#x4E0D;&#x80FD;&#x5904;&#x7406;&#x7684;&#x5F02;&#x5E38;&#x60C5;&#x51B5;&#x3002;<h1 id="&#x7ED3;&#x6784;&#x4F53;&#x6CE8;&#x91CA;">&#x7ED3;&#x6784;&#x4F53;&#x6CE8;&#x91CA;</h1>
+<li>&#x89E3;&#x6790;&#x51FD;&#x6570;&#x5E94;&#x8BE5;&#x6CE8;&#x660E;&#x89E3;&#x6790;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x8303;&#x4F8B;&#xFF0C;&#x5E76;&#x660E;&#x786E;&#x4E0D;&#x80FD;&#x5904;&#x7406;&#x7684;&#x5F02;&#x5E38;&#x60C5;&#x51B5;&#x3002;<h1 id="&#x7ED3;&#x6784;&#x4F53;&#x6CE8;&#x91CA;"><a name="&#x7ED3;&#x6784;&#x4F53;&#x6CE8;&#x91CA;" class="anchor-navigation-ex-anchor" href="#&#x7ED3;&#x6784;&#x4F53;&#x6CE8;&#x91CA;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7ED3;&#x6784;&#x4F53;&#x6CE8;&#x91CA;</h1>
 </li>
 <li>&#x6BCF;&#x4E2A;&#x9700;&#x8981;&#x5BFC;&#x51FA;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x7ED3;&#x6784;&#x4F53;&#x6216;&#x8005;&#x63A5;&#x53E3;&#x90FD;&#x5FC5;&#x987B;&#x6709;&#x6CE8;&#x91CA;&#x8BF4;&#x660E;&#x3002;</li>
 </ul>
@@ -1052,7 +1092,7 @@ printInfo(<span class="hljs-string">&quot;foo&quot;</span>, <span class="hljs-li
     Demographic <span class="hljs-keyword">string</span> <span class="hljs-comment">// &#x65CF;&#x7FA4;</span>
 }
 </code></pre>
-<h2 id="&#x53D8;&#x91CF;&#x548C;&#x5E38;&#x91CF;&#x6CE8;&#x91CA;">&#x53D8;&#x91CF;&#x548C;&#x5E38;&#x91CF;&#x6CE8;&#x91CA;</h2>
+<h2 id="&#x53D8;&#x91CF;&#x548C;&#x5E38;&#x91CF;&#x6CE8;&#x91CA;"><a name="&#x53D8;&#x91CF;&#x548C;&#x5E38;&#x91CF;&#x6CE8;&#x91CA;" class="anchor-navigation-ex-anchor" href="#&#x53D8;&#x91CF;&#x548C;&#x5E38;&#x91CF;&#x6CE8;&#x91CA;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53D8;&#x91CF;&#x548C;&#x5E38;&#x91CF;&#x6CE8;&#x91CA;</h2>
 <ul>
 <li>&#x6BCF;&#x4E2A;&#x9700;&#x8981;&#x5BFC;&#x51FA;&#x7684;&#x53D8;&#x91CF;&#x548C;&#x5E38;&#x91CF;&#x90FD;&#x5FC5;&#x987B;&#x6709;&#x6CE8;&#x91CA;&#x8BF4;&#x660E;&#x3002;</li>
 </ul>
@@ -1078,7 +1118,7 @@ printInfo(<span class="hljs-string">&quot;foo&quot;</span>, <span class="hljs-li
 )
 </code></pre>
 <ul>
-<li>&#x547D;&#x540D;&#x6E05;&#x6670;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x4E0D;&#x8981;&#x6DFB;&#x52A0;&#x65E0;&#x610F;&#x4E49;&#x7684;&#x6CE8;&#x91CA;&#x3002;<h2 id="&#x7C7B;&#x578B;&#x6CE8;&#x91CA;">&#x7C7B;&#x578B;&#x6CE8;&#x91CA;</h2>
+<li>&#x547D;&#x540D;&#x6E05;&#x6670;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x4E0D;&#x8981;&#x6DFB;&#x52A0;&#x65E0;&#x610F;&#x4E49;&#x7684;&#x6CE8;&#x91CA;&#x3002;<h2 id="&#x7C7B;&#x578B;&#x6CE8;&#x91CA;"><a name="&#x7C7B;&#x578B;&#x6CE8;&#x91CA;" class="anchor-navigation-ex-anchor" href="#&#x7C7B;&#x578B;&#x6CE8;&#x91CA;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7C7B;&#x578B;&#x6CE8;&#x91CA;</h2>
 </li>
 <li>&#x6BCF;&#x4E2A;&#x9700;&#x8981;&#x5BFC;&#x51FA;&#x7684;&#x7C7B;&#x578B;&#x5B9A;&#x4E49;&#xFF08;type definition&#xFF09;&#x548C;&#x7C7B;&#x578B;&#x522B;&#x540D;&#xFF08;type aliases&#xFF09;&#x90FD;&#x5FC5;&#x987B;&#x6709;&#x6CE8;&#x91CA;&#x8BF4;&#x660E;&#x3002;</li>
 <li>&#x8BE5;&#x6CE8;&#x91CA;&#x5BF9;&#x7C7B;&#x578B;&#x8FDB;&#x884C;&#x7B80;&#x8981;&#x4ECB;&#x7ECD;&#xFF0C;&#x653E;&#x5728;&#x5B9A;&#x4E49;&#x7684;&#x524D;&#x4E00;&#x884C;&#x3002;</li>
@@ -1090,12 +1130,14 @@ type StorageClass string</li>
 <p>// FakeTime &#x6807;&#x51C6;&#x5E93;&#x65F6;&#x95F4;&#x7684;&#x7C7B;&#x578B;&#x522B;&#x540D;
 type FakeTime = time.Time
 ```</p>
-<h2 id="&#x63A5;&#x53E3;&#x6CE8;&#x91CA;">&#x63A5;&#x53E3;&#x6CE8;&#x91CA;</h2>
+<h2 id="&#x63A5;&#x53E3;&#x6CE8;&#x91CA;"><a name="&#x63A5;&#x53E3;&#x6CE8;&#x91CA;" class="anchor-navigation-ex-anchor" href="#&#x63A5;&#x53E3;&#x6CE8;&#x91CA;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x63A5;&#x53E3;&#x6CE8;&#x91CA;</h2>
 <ul>
 <li>&#x5BFC;&#x51FA;&#x4E0E;&#x975E;&#x5BFC;&#x51FA;&#x63A5;&#x53E3;&#x5747;&#x9700;&#x8981;&#x6709;&#x6CE8;&#x91CA;&#x3002;</li>
-<li>&#x9700;&#x8981;&#x63CF;&#x8FF0;&#x8C01;&#xFF0C;&#x5728;&#x4EC0;&#x4E48;&#x573A;&#x666F;&#x4E0B;&#xFF0C;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x63A5;&#x53E3;&#x3002;</li>
+<li>&#x9700;&#x8981;&#x63CF;&#x8FF0;&#x8C01;&#xFF0C;&#x5728;&#x4EC0;&#x4E48;&#x573A;&#x666F;&#x4E0B;&#xFF0C;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x63A5;&#x53E3;&#x3002; </li>
 </ul>
-
+<footer class="page-footer"><span class="copyright">Copyright@Dablelv all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x7AE0;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2022-05-07 19:01:50
+</span></footer>
                                 
                                 </section>
                             
@@ -1138,7 +1180,7 @@ type FakeTime = time.Time
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"7.注释","level":"1.3.7","depth":2,"next":{"title":"8.命名规范","level":"1.3.8","depth":2,"path":"第二篇：代码风格/8.命名规范.md","ref":"第二篇：代码风格/8.命名规范.md","articles":[]},"previous":{"title":"6.错误处理","level":"1.3.6","depth":2,"path":"第二篇：代码风格/6.错误处理.md","ref":"第二篇：代码风格/6.错误处理.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["insert-logo","splitter","disqus","livereload"],"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"go-coding-advice"},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 100px;","url":"./images/logo.jpg"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"第二篇：代码风格/7.注释.md","mtime":"2022-05-07T11:01:50.460Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-17T12:28:57.179Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"7.注释","level":"1.3.7","depth":2,"next":{"title":"8.命名规范","level":"1.3.8","depth":2,"path":"第二篇：代码风格/8.命名规范.md","ref":"第二篇：代码风格/8.命名规范.md","articles":[]},"previous":{"title":"6.错误处理","level":"1.3.6","depth":2,"path":"第二篇：代码风格/6.错误处理.md","ref":"第二篇：代码风格/6.错误处理.md","articles":[]},"dir":"ltr"},"config":{"plugins":["insert-logo","custom-favicon","splitter","disqus","pageview-count","tbfed-pagefooter","github","ancre-navigation","code","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright@Dablelv","modify_label":"该文章修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"disqus":{"useIdentifier":false,"shortName":"go-coding-advice"},"github":{"url":"https://github.com/dablelv/go-coding-advice"},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"assets/images/favicon.ico","pageview-count":{},"custom-favicon":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 100px;","url":"assets/images/logo.jpg"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Go 编码建议","links":{"sidebar":{"个人站点":"https://dablelv.github.io/dablelvweb","CSDN 主页":"https://dablelv.blog.csdn.net","GitHub 主页":"https://github.com/dablelv","本书 GitHub 地址 ":"https://github.com/dablelv/go-coding-advice"}},"gitbook":"*"},"file":{"path":"第二篇：代码风格/7.注释.md","mtime":"2022-05-07T11:01:50.460Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-18T07:51:57.082Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1161,6 +1203,18 @@ type FakeTime = time.Time
     
         
         <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
         
     
         

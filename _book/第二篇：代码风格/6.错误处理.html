@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>6.错误处理 · GitBook</title>
+        <title>6.错误处理 · Go 编码建议</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -26,6 +26,22 @@
             
                 
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
                 
             
                 
@@ -94,7 +110,31 @@
 <ul class="summary">
     
     
+    
+        
+        <li>
+            <a href="https://dablelv.github.io/dablelvweb" target="_blank" class="custom-link">个人站点</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://dablelv.blog.csdn.net" target="_blank" class="custom-link">CSDN 主页</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://github.com/dablelv" target="_blank" class="custom-link">GitHub 主页</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://github.com/dablelv/go-coding-advice" target="_blank" class="custom-link">本书 GitHub 地址 </a>
+        </li>
+    
+    
 
+    
+    <li class="divider"></li>
     
 
     
@@ -965,7 +1005,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="error-&#x5904;&#x7406;">error &#x5904;&#x7406;</h1>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#error-&#x5904;&#x7406;"><b></b>error &#x5904;&#x7406;</a></li><li><span class="title-icon "></span><a href="#panic-&#x5904;&#x7406;"><b></b>panic &#x5904;&#x7406;</a></li><li><span class="title-icon "></span><a href="#recover-&#x5904;&#x7406;"><b></b>recover &#x5904;&#x7406;</a></li><li><span class="title-icon "></span><a href="#&#x7C7B;&#x578B;&#x65AD;&#x8A00;"><b></b>&#x7C7B;&#x578B;&#x65AD;&#x8A00;</a></li></ul></div><a href="#error-&#x5904;&#x7406;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="error-&#x5904;&#x7406;"><a name="error-&#x5904;&#x7406;" class="anchor-navigation-ex-anchor" href="#error-&#x5904;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>error &#x5904;&#x7406;</h1>
 <ul>
 <li>&#x9700;&#x663E;&#x793A;&#x5904;&#x7406; error&#x3002;</li>
 </ul>
@@ -1044,7 +1084,7 @@ if err != nil {
 
 // Good
 return exe.Run()
-</code></pre><h1 id="panic-&#x5904;&#x7406;">panic &#x5904;&#x7406;</h1>
+</code></pre><h1 id="panic-&#x5904;&#x7406;"><a name="panic-&#x5904;&#x7406;" class="anchor-navigation-ex-anchor" href="#panic-&#x5904;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>panic &#x5904;&#x7406;</h1>
 <ul>
 <li>&#x4E0D;&#x8981;&#x968F;&#x4FBF; panic&#x3002;</li>
 </ul>
@@ -1119,7 +1159,7 @@ main.main.func2()
         /Users/dablelv/work/code/test/main.go:16 +0x65
 created by main.main
         /Users/dablelv/work/code/test/main.go:14 +0x48
-</code></pre><h1 id="recover-&#x5904;&#x7406;">recover &#x5904;&#x7406;</h1>
+</code></pre><h1 id="recover-&#x5904;&#x7406;"><a name="recover-&#x5904;&#x7406;" class="anchor-navigation-ex-anchor" href="#recover-&#x5904;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>recover &#x5904;&#x7406;</h1>
 <ul>
 <li>recover &#x7528;&#x4E8E;&#x6355;&#x83B7; runtime &#x7684;&#x5F02;&#x5E38;&#xFF0C;&#x7981;&#x6B62;&#x6EE5;&#x7528; recover&#x3002;</li>
 <li>recover &#x53EA;&#x6709;&#x5728; defer &#x4E2D;&#x8C03;&#x7528;&#x624D;&#x4F1A;&#x751F;&#x6548;&#x3002;</li>
@@ -1162,7 +1202,7 @@ created by main.main
 <p>&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#xFF1A;</p>
 <pre><code>2022/03/27 10:48:42 exec panic error:  runtime error: index out of range [4] with length 3
 2022/03/27 10:48:42 exec panic error:  44
-</code></pre><h1 id="&#x7C7B;&#x578B;&#x65AD;&#x8A00;">&#x7C7B;&#x578B;&#x65AD;&#x8A00;</h1>
+</code></pre><h1 id="&#x7C7B;&#x578B;&#x65AD;&#x8A00;"><a name="&#x7C7B;&#x578B;&#x65AD;&#x8A00;" class="anchor-navigation-ex-anchor" href="#&#x7C7B;&#x578B;&#x65AD;&#x8A00;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7C7B;&#x578B;&#x65AD;&#x8A00;</h1>
 <ul>
 <li>&#x7C7B;&#x578B;&#x65AD;&#x8A00;&#x4F7F;&#x7528; comma ok &#x5F0F;</li>
 </ul>
@@ -1179,7 +1219,9 @@ t, ok := i.(<span class="hljs-keyword">string</span>)
 <span class="hljs-comment">// &#x5982;&#x679C;&#x4E0D;&#x5173;&#x5FC3;&#x662F;&#x5426;&#x6210;&#x529F;&#xFF0C;&#x53EF;&#x663E;&#x793A;&#x5FFD;&#x7565; ok&#x3002;</span>
 t, _ := i.(<span class="hljs-keyword">string</span>)
 </code></pre>
-
+<footer class="page-footer"><span class="copyright">Copyright@Dablelv all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x7AE0;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2022-05-07 19:01:50
+</span></footer>
                                 
                                 </section>
                             
@@ -1222,7 +1264,7 @@ t, _ := i.(<span class="hljs-keyword">string</span>)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"6.错误处理","level":"1.3.6","depth":2,"next":{"title":"7.注释","level":"1.3.7","depth":2,"path":"第二篇：代码风格/7.注释.md","ref":"第二篇：代码风格/7.注释.md","articles":[]},"previous":{"title":"5.初始化","level":"1.3.5","depth":2,"path":"第二篇：代码风格/5.初始化.md","ref":"第二篇：代码风格/5.初始化.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["insert-logo","splitter","disqus","livereload"],"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"go-coding-advice"},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 100px;","url":"./images/logo.jpg"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"第二篇：代码风格/6.错误处理.md","mtime":"2022-05-07T11:01:50.459Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-17T12:28:57.179Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"6.错误处理","level":"1.3.6","depth":2,"next":{"title":"7.注释","level":"1.3.7","depth":2,"path":"第二篇：代码风格/7.注释.md","ref":"第二篇：代码风格/7.注释.md","articles":[]},"previous":{"title":"5.初始化","level":"1.3.5","depth":2,"path":"第二篇：代码风格/5.初始化.md","ref":"第二篇：代码风格/5.初始化.md","articles":[]},"dir":"ltr"},"config":{"plugins":["insert-logo","custom-favicon","splitter","disqus","pageview-count","tbfed-pagefooter","github","ancre-navigation","code","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright@Dablelv","modify_label":"该文章修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"disqus":{"useIdentifier":false,"shortName":"go-coding-advice"},"github":{"url":"https://github.com/dablelv/go-coding-advice"},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"assets/images/favicon.ico","pageview-count":{},"custom-favicon":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 100px;","url":"assets/images/logo.jpg"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Go 编码建议","links":{"sidebar":{"个人站点":"https://dablelv.github.io/dablelvweb","CSDN 主页":"https://dablelv.blog.csdn.net","GitHub 主页":"https://github.com/dablelv","本书 GitHub 地址 ":"https://github.com/dablelv/go-coding-advice"}},"gitbook":"*"},"file":{"path":"第二篇：代码风格/6.错误处理.md","mtime":"2022-05-07T11:01:50.459Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-18T07:51:57.082Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1245,6 +1287,18 @@ t, _ := i.(<span class="hljs-keyword">string</span>)
     
         
         <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
         
     
         
