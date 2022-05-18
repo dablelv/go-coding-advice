@@ -8,7 +8,7 @@
       "本书 GitHub 地址 ":"https://github.com/dablelv/go-coding-advice"
     }
   },
-  "plugins": ["insert-logo","custom-favicon","splitter","disqus","pageview-count","tbfed-pagefooter","github","ancre-navigation","code"],
+  "plugins": ["insert-logo","custom-favicon","splitter","disqus","pageview-count","tbfed-pagefooter","github","ancre-navigation","code","sidebar-style"],
   "pluginsConfig":{
     "insert-logo":{
       "url": "assets/images/logo.jpg",
@@ -25,6 +25,10 @@
     },
     "github": {
       "url": "https://github.com/dablelv/go-coding-advice"
+    },
+    "sidebar-style": {
+      "title": "Go 编码建议",
+      "author": ""
     }
   }
 }
