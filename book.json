@@ -30,6 +30,7 @@
     },
     "favicon": "assets/images/favicon.ico",
     "tbfed-pagefooter": {
+      "copyright":"",
       "modify_label": "该文章修订时间：",
       "modify_format": "YYYY-MM-DD HH:mm:ss"
     },
