@@ -29,10 +29,6 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
-                
-            
-                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
                 
             
@@ -889,9 +885,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.4.1" data-path="../第四篇：最佳性能/3.并发编程/1.零值Mutex是有效的.md">
+        <li class="chapter " data-level="1.5.4.1" data-path="../第四篇：最佳性能/3.并发编程/1.关于锁.html">
             
-                <span>
+                <a href="../第四篇：最佳性能/3.并发编程/1.关于锁.html">
             
                     
                     1.关于锁
@@ -1009,7 +1005,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><input type="checkbox" class="fa fa-navicon"><ul><li><span class="title-icon "></span><a href="#&#x4F9D;&#x8D56;&#x89C4;&#x8303;"><b>1. </b>&#x4F9D;&#x8D56;&#x89C4;&#x8303;</a></li><li><span class="title-icon "></span><a href="#import-&#x89C4;&#x8303;"><b>2. </b>import &#x89C4;&#x8303;</a></li></ul></div><a href="#&#x4F9D;&#x8D56;&#x89C4;&#x8303;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x4F9D;&#x8D56;&#x89C4;&#x8303;"><a name="&#x4F9D;&#x8D56;&#x89C4;&#x8303;" class="anchor-navigation-ex-anchor" href="#&#x4F9D;&#x8D56;&#x89C4;&#x8303;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x4F9D;&#x8D56;&#x89C4;&#x8303;</h1>
+                                <div id="anchor-navigation-ex-navbar"><input type="checkbox" class="fa fa-navicon"><ul><li><span class="title-icon "></span><a href="#&#x4F9D;&#x8D56;&#x89C4;&#x8303;"><b></b>&#x4F9D;&#x8D56;&#x89C4;&#x8303;</a></li><li><span class="title-icon "></span><a href="#import-&#x89C4;&#x8303;"><b></b>import &#x89C4;&#x8303;</a></li></ul></div><a href="#&#x4F9D;&#x8D56;&#x89C4;&#x8303;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x4F9D;&#x8D56;&#x89C4;&#x8303;"><a name="&#x4F9D;&#x8D56;&#x89C4;&#x8303;" class="anchor-navigation-ex-anchor" href="#&#x4F9D;&#x8D56;&#x89C4;&#x8303;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F9D;&#x8D56;&#x89C4;&#x8303;</h1>
 <ul>
 <li>go1.11 &#x4EE5;&#x4E0A;&#x5FC5;&#x987B;&#x4F7F;&#x7528; go modules &#x6A21;&#x5F0F;&#x3002;<pre><code class="lang-go"><span class="hljs-keyword">go</span> mod init git.code.oa.com/group/myrepo
 </code></pre>
@@ -1017,7 +1013,7 @@
 <li>&#x4F7F;&#x7528; go modules &#x4F5C;&#x4E3A;&#x4F9D;&#x8D56;&#x7BA1;&#x7406;&#x7684;&#x9879;&#x76EE;&#x4E0D;&#x8981;&#x63D0;&#x4EA4; vendor &#x76EE;&#x5F55;&#x3002;</li>
 <li>&#x4F7F;&#x7528; go modules &#x7BA1;&#x7406;&#x4F9D;&#x8D56;&#x7684;&#x9879;&#x76EE;&#xFF0C; <code>go.sum</code>&#x6587;&#x4EF6;&#x5FC5;&#x987B;&#x63D0;&#x4EA4;&#xFF0C;&#x4E0D;&#x8981;&#x6DFB;&#x52A0;&#x5230;<code>.gitignore</code>&#x89C4;&#x5219;&#x4E2D;&#x3002;</li>
 </ul>
-<h1 id="import-&#x89C4;&#x8303;"><a name="import-&#x89C4;&#x8303;" class="anchor-navigation-ex-anchor" href="#import-&#x89C4;&#x8303;"><i class="fa fa-link" aria-hidden="true"></i></a>2. import &#x89C4;&#x8303;</h1>
+<h1 id="import-&#x89C4;&#x8303;"><a name="import-&#x89C4;&#x8303;" class="anchor-navigation-ex-anchor" href="#import-&#x89C4;&#x8303;"><i class="fa fa-link" aria-hidden="true"></i></a>import &#x89C4;&#x8303;</h1>
 <ul>
 <li>&#x4F7F;&#x7528; <a href="https://pkg.go.dev/golang.org/x/tools@v0.1.10/cmd/goimports" target="_blank">goimports</a> &#x5DE5;&#x5177;&#x81EA;&#x52A8;&#x683C;&#x5F0F;&#x5316;&#x5F15;&#x5165;&#x7684;&#x5305;&#x540D;&#xFF0C;import &#x89C4;&#x8303;&#x539F;&#x5219;&#x4E0A;&#x4EE5; goimports &#x89C4;&#x5219;&#x4E3A;&#x51C6;&#x3002;</li>
 </ul>
@@ -1105,6 +1101,7 @@ github.com/astaxie/beego/orm
 <footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x7AE0;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
 2022-05-01 20:52:32
 </span></footer>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
                                 </section>
                             
@@ -1147,7 +1144,7 @@ github.com/astaxie/beego/orm
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.依赖管理","level":"1.3.4","depth":2,"next":{"title":"5.初始化","level":"1.3.5","depth":2,"path":"第二篇：代码风格/5.初始化.md","ref":"第二篇：代码风格/5.初始化.md","articles":[]},"previous":{"title":"3.字符串","level":"1.3.3","depth":2,"path":"第二篇：代码风格/3.字符串.md","ref":"第二篇：代码风格/3.字符串.md","articles":[]},"dir":"ltr"},"config":{"plugins":["insert-logo","custom-favicon","splitter","disqus","pageview-count","tbfed-pagefooter","github","code","sidebar-style","anchor-navigation-expand","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"sidebar-style":{"author":"","title":"Go 编码建议"},"tbfed-pagefooter":{"copyright":"","modify_label":"该文章修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"disqus":{"useIdentifier":false,"shortName":"go-coding-advice"},"github":{"url":"https://github.com/dablelv/go-coding-advice"},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"assets/images/favicon.ico","pageview-count":{},"custom-favicon":{},"anchor-navigation-expand":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 100px;","url":"assets/images/logo.jpg"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Go 编码建议","links":{"sidebar":{"个人站点":"https://dablelv.github.io/dablelvweb","CSDN 主页":"https://dablelv.blog.csdn.net","GitHub 主页":"https://github.com/dablelv","本书 GitHub 地址 ":"https://github.com/dablelv/go-coding-advice"}},"gitbook":"*"},"file":{"path":"第二篇：代码风格/4.依赖管理.md","mtime":"2022-05-01T12:52:32.610Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-21T08:44:22.022Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.依赖管理","level":"1.3.4","depth":2,"next":{"title":"5.初始化","level":"1.3.5","depth":2,"path":"第二篇：代码风格/5.初始化.md","ref":"第二篇：代码风格/5.初始化.md","articles":[]},"previous":{"title":"3.字符串","level":"1.3.3","depth":2,"path":"第二篇：代码风格/3.字符串.md","ref":"第二篇：代码风格/3.字符串.md","articles":[]},"dir":"ltr"},"config":{"plugins":["insert-logo","custom-favicon","splitter","disqus","tbfed-pagefooter","github","code","sidebar-style","anchor-navigation-expand","popup","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"sidebar-style":{"author":"","title":"Go 编码建议"},"tbfed-pagefooter":{"copyright":"","modify_label":"该文章修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"disqus":{"useIdentifier":false,"shortName":"go-coding-advice"},"github":{"url":"https://github.com/dablelv/go-coding-advice"},"livereload":{},"splitter":{},"search":{},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"assets/images/favicon.ico","custom-favicon":{},"anchor-navigation-expand":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 100px;","url":"https://dablelv.github.io/go-coding-advice/assets/images/logo.jpg"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Go 编码建议","links":{"sidebar":{"个人站点":"https://dablelv.github.io/dablelvweb","CSDN 主页":"https://dablelv.blog.csdn.net","GitHub 主页":"https://github.com/dablelv","本书 GitHub 地址 ":"https://github.com/dablelv/go-coding-advice"}},"gitbook":"*"},"file":{"path":"第二篇：代码风格/4.依赖管理.md","mtime":"2022-05-01T12:52:32.610Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-21T14:13:05.021Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1170,10 +1167,6 @@ github.com/astaxie/beego/orm
     
         
         <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
         
     
         

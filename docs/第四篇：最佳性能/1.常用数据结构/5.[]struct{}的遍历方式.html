@@ -29,10 +29,6 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
-                
-            
-                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
                 
             
@@ -889,9 +885,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.4.1" data-path="../3.并发编程/1.零值Mutex是有效的.md">
+        <li class="chapter " data-level="1.5.4.1" data-path="../3.并发编程/1.关于锁.html">
             
-                <span>
+                <a href="../3.并发编程/1.关于锁.html">
             
                     
                     1.关于锁
@@ -1009,8 +1005,8 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><input type="checkbox" class="fa fa-navicon"><ul><li><span class="title-icon "></span><a href="#1int"><b>1. </b>1.[]int</a></li><li><span class="title-icon "></span><a href="#2struct"><b>2. </b>2.[]struct{}</a></li><li><span class="title-icon "></span><a href="#3struct"><b>3. </b>3.[]*struct</a></li><li><span class="title-icon "></span><a href="#4&#x5C0F;&#x7ED3;"><b>4. </b>4.&#x5C0F;&#x7ED3;</a></li></ul></div><a href="#1int" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><p>Go &#x904D;&#x5386;&#x5207;&#x7247;&#x6216;&#x6570;&#x7EC4;&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x4E00;&#x79CD;&#x662F;&#x4E0B;&#x6807;&#xFF0C;&#x4E00;&#x79CD;&#x662F; range&#x3002;&#x4E8C;&#x8005;&#x5728;&#x529F;&#x80FD;&#x4E0A;&#x6CA1;&#x6709;&#x533A;&#x522B;&#xFF0C;&#x4F46;&#x5728;&#x6027;&#x80FD;&#x4E0A;&#x4F1A;&#x6709;&#x533A;&#x522B;&#x5417;&#xFF1F;</p>
-<h1 id="1int"><a name="1int" class="anchor-navigation-ex-anchor" href="#1int"><i class="fa fa-link" aria-hidden="true"></i></a>1. 1.[]int</h1>
+                                <div id="anchor-navigation-ex-navbar"><input type="checkbox" class="fa fa-navicon"><ul><li><span class="title-icon "></span><a href="#1int"><b></b>1.[]int</a></li><li><span class="title-icon "></span><a href="#2struct"><b></b>2.[]struct{}</a></li><li><span class="title-icon "></span><a href="#3struct"><b></b>3.[]*struct</a></li><li><span class="title-icon "></span><a href="#4&#x5C0F;&#x7ED3;"><b></b>4.&#x5C0F;&#x7ED3;</a></li></ul></div><a href="#1int" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><p>Go &#x904D;&#x5386;&#x5207;&#x7247;&#x6216;&#x6570;&#x7EC4;&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x4E00;&#x79CD;&#x662F;&#x4E0B;&#x6807;&#xFF0C;&#x4E00;&#x79CD;&#x662F; range&#x3002;&#x4E8C;&#x8005;&#x5728;&#x529F;&#x80FD;&#x4E0A;&#x6CA1;&#x6709;&#x533A;&#x522B;&#xFF0C;&#x4F46;&#x5728;&#x6027;&#x80FD;&#x4E0A;&#x4F1A;&#x6709;&#x533A;&#x522B;&#x5417;&#xFF1F;</p>
+<h1 id="1int"><a name="1int" class="anchor-navigation-ex-anchor" href="#1int"><i class="fa fa-link" aria-hidden="true"></i></a>1.[]int</h1>
 <p>&#x9996;&#x5148;&#x770B;&#x4E00;&#x4E0B;&#x904D;&#x5386;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x5207;&#x7247;&#x65F6;&#x4E8C;&#x8005;&#x7684;&#x6027;&#x80FD;&#x5DEE;&#x522B;&#xFF0C;&#x4EE5; []int &#x4E3A;&#x4F8B;&#x3002;</p>
 <pre><code class="lang-go"><span class="hljs-comment">// genRandomIntSlice &#x751F;&#x6210;&#x6307;&#x5B9A;&#x957F;&#x5EA6;&#x7684;&#x968F;&#x673A; []int &#x5207;&#x7247;</span>
 <span class="hljs-keyword">func</span> genRandomIntSlice(n <span class="hljs-keyword">int</span>) []<span class="hljs-keyword">int</span> {
@@ -1054,7 +1050,7 @@ BenchmarkIndexIntSlice-8         5043324               236.2 ns/op
 BenchmarkRangeIntSlice-8         5076255               239.1 ns/op
 </code></pre>
 <p><code>genRandomIntSlice()</code> &#x51FD;&#x6570;&#x7528;&#x4E8E;&#x751F;&#x6210;&#x6307;&#x5B9A;&#x957F;&#x5EA6;&#x5143;&#x7D20;&#x7C7B;&#x578B;&#x4E3A; int &#x7684;&#x5207;&#x7247;&#x3002;&#x4ECE;&#x6700;&#x7EC8;&#x7684;&#x7ED3;&#x679C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x904D;&#x5386; []int &#x7C7B;&#x578B;&#x7684;&#x5207;&#x7247;&#xFF0C;&#x4E0B;&#x6807;&#x4E0E; range &#x904D;&#x5386;&#x6027;&#x80FD;&#x51E0;&#x4E4E;&#x6CA1;&#x6709;&#x533A;&#x522B;&#x3002;</p>
-<h1 id="2struct"><a name="2struct" class="anchor-navigation-ex-anchor" href="#2struct"><i class="fa fa-link" aria-hidden="true"></i></a>2. 2.[]struct{}</h1>
+<h1 id="2struct"><a name="2struct" class="anchor-navigation-ex-anchor" href="#2struct"><i class="fa fa-link" aria-hidden="true"></i></a>2.[]struct{}</h1>
 <p>&#x90A3;&#x4E48;&#x5BF9;&#x4E8E;&#x7A0D;&#x5FAE;&#x590D;&#x6742;&#x4E00;&#x70B9;&#x7684; []struct &#x7C7B;&#x578B;&#x5462;&#xFF1F;</p>
 <pre><code class="lang-go"><span class="hljs-keyword">type</span> Item <span class="hljs-keyword">struct</span> {
     id  <span class="hljs-keyword">int</span>
@@ -1143,7 +1139,7 @@ BenchmarkRange2-12         46161             27169 ns/op              22 B/op   
 PASS
 ok      main/range      3.378s
 </code></pre>
-<h1 id="3struct"><a name="3struct" class="anchor-navigation-ex-anchor" href="#3struct"><i class="fa fa-link" aria-hidden="true"></i></a>3. 3.[]*struct</h1>
+<h1 id="3struct"><a name="3struct" class="anchor-navigation-ex-anchor" href="#3struct"><i class="fa fa-link" aria-hidden="true"></i></a>3.[]*struct</h1>
 <p>&#x5982;&#x679C;&#x5207;&#x7247;&#x4E2D;&#x662F;&#x6307;&#x5411;&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x6307;&#x9488;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x7ED3;&#x6784;&#x4F53;&#x5462;&#xFF1F;</p>
 <pre><code class="lang-go"><span class="hljs-comment">// genItems &#x751F;&#x6210;&#x6307;&#x5B9A;&#x957F;&#x5EA6; []*Item &#x5207;&#x7247;</span>
 <span class="hljs-keyword">func</span> genItems(n <span class="hljs-keyword">int</span>) []*Item {
@@ -1186,12 +1182,13 @@ BenchmarkIndexPointer-8           773634              1521 ns/op
 BenchmarkRangePointer-8           752077              1514 ns/op
 </code></pre>
 <p>&#x5207;&#x7247;&#x5143;&#x7D20;&#x4ECE;&#x7ED3;&#x6784;&#x4F53; Item &#x66FF;&#x6362;&#x4E3A;&#x6307;&#x9488; *Item &#x540E;&#xFF0C;for &#x548C; range &#x7684;&#x6027;&#x80FD;&#x51E0;&#x4E4E;&#x662F;&#x4E00;&#x6837;&#x7684;&#x3002;&#x800C;&#x4E14;&#x4F7F;&#x7528;&#x6307;&#x9488;&#x8FD8;&#x6709;&#x53E6;&#x4E00;&#x4E2A;&#x597D;&#x5904;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4FEE;&#x6539;&#x6307;&#x9488;&#x5BF9;&#x5E94;&#x7684;&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x503C;&#x3002;</p>
-<h1 id="4&#x5C0F;&#x7ED3;"><a name="4&#x5C0F;&#x7ED3;" class="anchor-navigation-ex-anchor" href="#4&#x5C0F;&#x7ED3;"><i class="fa fa-link" aria-hidden="true"></i></a>4. 4.&#x5C0F;&#x7ED3;</h1>
+<h1 id="4&#x5C0F;&#x7ED3;"><a name="4&#x5C0F;&#x7ED3;" class="anchor-navigation-ex-anchor" href="#4&#x5C0F;&#x7ED3;"><i class="fa fa-link" aria-hidden="true"></i></a>4.&#x5C0F;&#x7ED3;</h1>
 <p>range &#x5728;&#x8FED;&#x4EE3;&#x8FC7;&#x7A0B;&#x4E2D;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x5143;&#x7D20;&#x7684;&#x62F7;&#x8D1D;&#xFF0C;index &#x5219;&#x4E0D;&#x5B58;&#x5728;&#x62F7;&#x8D1D;&#x3002;</p>
 <p>&#x5982;&#x679C; range &#x8FED;&#x4EE3;&#x7684;&#x5143;&#x7D20;&#x8F83;&#x5C0F;&#xFF0C;&#x90A3;&#x4E48; index &#x548C; range &#x7684;&#x6027;&#x80FD;&#x51E0;&#x4E4E;&#x4E00;&#x6837;&#xFF0C;&#x5982;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x7684;&#x5207;&#x7247; []int&#x3002;&#x4F46;&#x5982;&#x679C;&#x8FED;&#x4EE3;&#x7684;&#x5143;&#x7D20;&#x8F83;&#x5927;&#xFF0C;&#x5982;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x5F88;&#x591A;&#x5C5E;&#x6027;&#x7684; struct &#x7ED3;&#x6784;&#x4F53;&#xFF0C;&#x90A3;&#x4E48; index &#x7684;&#x6027;&#x80FD;&#x5C06;&#x663E;&#x8457;&#x5730;&#x9AD8;&#x4E8E; range&#xFF0C;&#x6709;&#x65F6;&#x5019;&#x751A;&#x81F3;&#x4F1A;&#x6709;&#x4E0A;&#x5343;&#x500D;&#x7684;&#x6027;&#x80FD;&#x5DEE;&#x5F02;&#x3002;&#x5BF9;&#x4E8E;&#x8FD9;&#x79CD;&#x573A;&#x666F;&#xFF0C;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528; index&#x3002;&#x5982;&#x679C;&#x4F7F;&#x7528; range&#xFF0C;&#x5EFA;&#x8BAE;&#x53EA;&#x8FED;&#x4EE3;&#x4E0B;&#x6807;&#xFF0C;&#x901A;&#x8FC7;&#x4E0B;&#x6807;&#x8BBF;&#x95EE;&#x5143;&#x7D20;&#xFF0C;&#x8FD9;&#x79CD;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x548C; index &#x5C31;&#x6CA1;&#x6709;&#x533A;&#x522B;&#x4E86;&#x3002;&#x5982;&#x679C;&#x60F3;&#x4F7F;&#x7528; range &#x540C;&#x65F6;&#x8FED;&#x4EE3;&#x4E0B;&#x6807;&#x548C;&#x503C;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x5C06;&#x5207;&#x7247;/&#x6570;&#x7EC4;&#x7684;&#x5143;&#x7D20;&#x6539;&#x4E3A;&#x6307;&#x9488;&#xFF0C;&#x624D;&#x80FD;&#x4E0D;&#x5F71;&#x54CD;&#x6027;&#x80FD;&#x3002; </p>
 <footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x7AE0;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
 2022-05-08 19:22:09
 </span></footer>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
                                 </section>
                             
@@ -1234,7 +1231,7 @@ BenchmarkRangePointer-8           752077              1514 ns/op
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.[]struct{} 的遍历方式","level":"1.5.2.5","depth":3,"next":{"title":"6.切片删除指定元素","level":"1.5.2.6","depth":3,"path":"第四篇：最佳性能/1.常用数据结构/6.切片删除指定元素.md","ref":"第四篇：最佳性能/1.常用数据结构/6.切片删除指定元素.md","articles":[]},"previous":{"title":"4.字符串拼接方式","level":"1.5.2.4","depth":3,"path":"第四篇：最佳性能/1.常用数据结构/4.字符串拼接方式.md","ref":"第四篇：最佳性能/1.常用数据结构/4.字符串拼接方式.md","articles":[]},"dir":"ltr"},"config":{"plugins":["insert-logo","custom-favicon","splitter","disqus","pageview-count","tbfed-pagefooter","github","code","sidebar-style","anchor-navigation-expand","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"sidebar-style":{"author":"","title":"Go 编码建议"},"tbfed-pagefooter":{"copyright":"","modify_label":"该文章修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"disqus":{"useIdentifier":false,"shortName":"go-coding-advice"},"github":{"url":"https://github.com/dablelv/go-coding-advice"},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"assets/images/favicon.ico","pageview-count":{},"custom-favicon":{},"anchor-navigation-expand":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 100px;","url":"assets/images/logo.jpg"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Go 编码建议","links":{"sidebar":{"个人站点":"https://dablelv.github.io/dablelvweb","CSDN 主页":"https://dablelv.blog.csdn.net","GitHub 主页":"https://github.com/dablelv","本书 GitHub 地址 ":"https://github.com/dablelv/go-coding-advice"}},"gitbook":"*"},"file":{"path":"第四篇：最佳性能/1.常用数据结构/5.[]struct{}的遍历方式.md","mtime":"2022-05-08T11:22:09.376Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-21T08:44:22.022Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.[]struct{} 的遍历方式","level":"1.5.2.5","depth":3,"next":{"title":"6.切片删除指定元素","level":"1.5.2.6","depth":3,"path":"第四篇：最佳性能/1.常用数据结构/6.切片删除指定元素.md","ref":"第四篇：最佳性能/1.常用数据结构/6.切片删除指定元素.md","articles":[]},"previous":{"title":"4.字符串拼接方式","level":"1.5.2.4","depth":3,"path":"第四篇：最佳性能/1.常用数据结构/4.字符串拼接方式.md","ref":"第四篇：最佳性能/1.常用数据结构/4.字符串拼接方式.md","articles":[]},"dir":"ltr"},"config":{"plugins":["insert-logo","custom-favicon","splitter","disqus","tbfed-pagefooter","github","code","sidebar-style","anchor-navigation-expand","popup","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"sidebar-style":{"author":"","title":"Go 编码建议"},"tbfed-pagefooter":{"copyright":"","modify_label":"该文章修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"disqus":{"useIdentifier":false,"shortName":"go-coding-advice"},"github":{"url":"https://github.com/dablelv/go-coding-advice"},"livereload":{},"splitter":{},"search":{},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"assets/images/favicon.ico","custom-favicon":{},"anchor-navigation-expand":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 100px;","url":"https://dablelv.github.io/go-coding-advice/assets/images/logo.jpg"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Go 编码建议","links":{"sidebar":{"个人站点":"https://dablelv.github.io/dablelvweb","CSDN 主页":"https://dablelv.blog.csdn.net","GitHub 主页":"https://github.com/dablelv","本书 GitHub 地址 ":"https://github.com/dablelv/go-coding-advice"}},"gitbook":"*"},"file":{"path":"第四篇：最佳性能/1.常用数据结构/5.[]struct{}的遍历方式.md","mtime":"2022-05-08T11:22:09.376Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-21T14:13:05.021Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1257,10 +1254,6 @@ BenchmarkRangePointer-8           752077              1514 ns/op
     
         
         <script src="../../gitbook/gitbook-plugin-disqus/plugin.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
         
     
         

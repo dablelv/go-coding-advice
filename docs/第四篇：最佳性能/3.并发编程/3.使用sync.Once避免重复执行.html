@@ -29,10 +29,6 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
-                
-            
-                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
                 
             
@@ -889,9 +885,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.4.1" data-path="1.零值Mutex是有效的.md">
+        <li class="chapter " data-level="1.5.4.1" data-path="1.关于锁.html">
             
-                <span>
+                <a href="1.关于锁.html">
             
                     
                     1.关于锁
@@ -1009,7 +1005,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><input type="checkbox" class="fa fa-navicon"><ul><li><span class="title-icon "></span><a href="#1&#x7B80;&#x4ECB;"><b>1. </b>1.&#x7B80;&#x4ECB;</a></li><li><span class="title-icon "></span><a href="#2&#x539F;&#x7406;"><b>2. </b>2.&#x539F;&#x7406;</a></li><ul><li><span class="title-icon "></span><a href="#21-&#x6E90;&#x7801;"><b>2.1. </b>2.1 &#x6E90;&#x7801;</a></li><li><span class="title-icon "></span><a href="#22-done-&#x4E3A;&#x4EC0;&#x4E48;&#x662F;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#xFF1F;"><b>2.2. </b>2.2 done &#x4E3A;&#x4EC0;&#x4E48;&#x662F;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#xFF1F;</a></li></ul><li><span class="title-icon "></span><a href="#3&#x6027;&#x80FD;&#x5DEE;&#x5F02;"><b>3. </b>3.&#x6027;&#x80FD;&#x5DEE;&#x5F02;</a></li></ul></div><a href="#1&#x7B80;&#x4ECB;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="1&#x7B80;&#x4ECB;"><a name="1&#x7B80;&#x4ECB;" class="anchor-navigation-ex-anchor" href="#1&#x7B80;&#x4ECB;"><i class="fa fa-link" aria-hidden="true"></i></a>1. 1.&#x7B80;&#x4ECB;</h1>
+                                <div id="anchor-navigation-ex-navbar"><input type="checkbox" class="fa fa-navicon"><ul><li><span class="title-icon "></span><a href="#1&#x7B80;&#x4ECB;"><b></b>1.&#x7B80;&#x4ECB;</a></li><li><span class="title-icon "></span><a href="#2&#x539F;&#x7406;"><b></b>2.&#x539F;&#x7406;</a></li><ul><li><span class="title-icon "></span><a href="#21-&#x6E90;&#x7801;"><b></b>2.1 &#x6E90;&#x7801;</a></li><li><span class="title-icon "></span><a href="#22-done-&#x4E3A;&#x4EC0;&#x4E48;&#x662F;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#xFF1F;"><b></b>2.2 done &#x4E3A;&#x4EC0;&#x4E48;&#x662F;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#xFF1F;</a></li></ul><li><span class="title-icon "></span><a href="#3&#x6027;&#x80FD;&#x5DEE;&#x5F02;"><b></b>3.&#x6027;&#x80FD;&#x5DEE;&#x5F02;</a></li></ul></div><a href="#1&#x7B80;&#x4ECB;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="1&#x7B80;&#x4ECB;"><a name="1&#x7B80;&#x4ECB;" class="anchor-navigation-ex-anchor" href="#1&#x7B80;&#x4ECB;"><i class="fa fa-link" aria-hidden="true"></i></a>1.&#x7B80;&#x4ECB;</h1>
 <p>sync.Once &#x662F; Go &#x6807;&#x51C6;&#x5E93;&#x63D0;&#x4F9B;&#x7684;&#x4F7F;&#x51FD;&#x6570;&#x53EA;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x5E38;&#x5E94;&#x7528;&#x4E8E;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#xFF0C;&#x4F8B;&#x5982;&#x521D;&#x59CB;&#x5316;&#x914D;&#x7F6E;&#x3001;&#x4FDD;&#x6301;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#x7B49;&#x3002;&#x4F5C;&#x7528;&#x4E0E; init &#x51FD;&#x6570;&#x7C7B;&#x4F3C;&#xFF0C;&#x4F46;&#x6709;&#x533A;&#x522B;&#x3002;</p>
 <ul>
 <li>init &#x51FD;&#x6570;&#x662F;&#x5F53;&#x6240;&#x5728;&#x7684; package &#x9996;&#x6B21;&#x88AB;&#x52A0;&#x8F7D;&#x65F6;&#x6267;&#x884C;&#xFF0C;&#x82E5;&#x8FDF;&#x8FDF;&#x672A;&#x88AB;&#x4F7F;&#x7528;&#xFF0C;&#x5219;&#x65E2;&#x6D6A;&#x8D39;&#x4E86;&#x5185;&#x5B58;&#xFF0C;&#x53C8;&#x5EF6;&#x957F;&#x4E86;&#x7A0B;&#x5E8F;&#x52A0;&#x8F7D;&#x65F6;&#x95F4;&#x3002;</li>
@@ -1021,13 +1017,13 @@
 <li>&#x53D8;&#x91CF;&#x521D;&#x59CB;&#x5316;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x6240;&#x6709;&#x8BFB;&#x90FD;&#x88AB;&#x963B;&#x585E;&#xFF0C;&#x76F4;&#x5230;&#x521D;&#x59CB;&#x5316;&#x5B8C;&#x6210;&#xFF1B;</li>
 <li>&#x53D8;&#x91CF;&#x4EC5;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x6B21;&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x5B8C;&#x6210;&#x540E;&#x9A7B;&#x7559;&#x5728;&#x5185;&#x5B58;&#x91CC;&#x3002;</li>
 </ul>
-<h1 id="2&#x539F;&#x7406;"><a name="2&#x539F;&#x7406;" class="anchor-navigation-ex-anchor" href="#2&#x539F;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>2. 2.&#x539F;&#x7406;</h1>
+<h1 id="2&#x539F;&#x7406;"><a name="2&#x539F;&#x7406;" class="anchor-navigation-ex-anchor" href="#2&#x539F;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>2.&#x539F;&#x7406;</h1>
 <p>sync.Once &#x7528;&#x6765;&#x4FDD;&#x8BC1;&#x51FD;&#x6570;&#x53EA;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x3002;&#x8981;&#x8FBE;&#x5230;&#x8FD9;&#x4E2A;&#x6548;&#x679C;&#xFF0C;&#x9700;&#x8981;&#x505A;&#x5230;&#x4E24;&#x70B9;&#xFF1A;</p>
 <ul>
 <li>&#x8BA1;&#x6570;&#x5668;&#xFF0C;&#x7EDF;&#x8BA1;&#x51FD;&#x6570;&#x6267;&#x884C;&#x6B21;&#x6570;&#xFF1B;</li>
 <li>&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#xFF0C;&#x4FDD;&#x969C;&#x5728;&#x591A; Go &#x7A0B;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x51FD;&#x6570;&#x4ECD;&#x7136;&#x53EA;&#x6267;&#x884C;&#x4E00;&#x6B21;&#xFF0C;&#x6BD4;&#x5982;&#x9501;&#x3002;</li>
 </ul>
-<h2 id="21-&#x6E90;&#x7801;"><a name="21-&#x6E90;&#x7801;" class="anchor-navigation-ex-anchor" href="#21-&#x6E90;&#x7801;"><i class="fa fa-link" aria-hidden="true"></i></a>2.1. 2.1 &#x6E90;&#x7801;</h2>
+<h2 id="21-&#x6E90;&#x7801;"><a name="21-&#x6E90;&#x7801;" class="anchor-navigation-ex-anchor" href="#21-&#x6E90;&#x7801;"><i class="fa fa-link" aria-hidden="true"></i></a>2.1 &#x6E90;&#x7801;</h2>
 <p>&#x4E0B;&#x9762;&#x770B;&#x4E00;&#x4E0B; sync.Once &#x7ED3;&#x6784;&#xFF0C;&#x5176;&#x6709;&#x4E24;&#x4E2A;&#x53D8;&#x91CF;&#x3002;&#x4F7F;&#x7528; done &#x7EDF;&#x8BA1;&#x51FD;&#x6570;&#x6267;&#x884C;&#x6B21;&#x6570;&#xFF0C;&#x4F7F;&#x7528;&#x9501; m &#x5B9E;&#x73B0;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x3002;&#x679C;&#x4E0D;&#x5176;&#x7136;&#xFF0C;&#x548C;&#x4E0A;&#x9762;&#x7684;&#x731C;&#x60F3;&#x4E00;&#x81F4;&#x3002;</p>
 <pre><code class="lang-go"><span class="hljs-comment">// Once is an object that will perform exactly one action.</span>
 <span class="hljs-comment">//</span>
@@ -1094,7 +1090,7 @@
 }
 </code></pre>
 <p>&#x629B;&#x53BB;&#x5927;&#x6BB5;&#x7684;&#x6CE8;&#x91CA;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230; sync.Once &#x5B9E;&#x73B0;&#x975E;&#x5E38;&#x7B80;&#x6D01;&#x3002;Do() &#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x901A;&#x8FC7;&#x5BF9;&#x6210;&#x5458;&#x53D8;&#x91CF; done &#x7684;&#x5224;&#x65AD;&#xFF0C;&#x6765;&#x51B3;&#x5B9A;&#x662F;&#x5426;&#x6267;&#x884C;&#x4F20;&#x5165;&#x7684;&#x4EFB;&#x52A1;&#x51FD;&#x6570;&#x3002;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x51FD;&#x6570;&#x524D;&#xFF0C;&#x901A;&#x8FC7;&#x9501;&#x4FDD;&#x8BC1;&#x4EFB;&#x52A1;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x548C; done &#x7684;&#x4FEE;&#x6539;&#x662F;&#x4E00;&#x4E2A;&#x4E92;&#x65A5;&#x64CD;&#x4F5C;&#x3002;&#x5728;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x51FD;&#x6570;&#x524D;&#xFF0C;&#x5BF9; done &#x505A;&#x4E00;&#x4E2A;&#x4E8C;&#x6B21;&#x5224;&#x65AD;&#xFF0C;&#x6765;&#x4FDD;&#x8BC1;&#x4EFB;&#x52A1;&#x51FD;&#x6570;&#x53EA;&#x4F1A;&#x88AB;&#x6267;&#x884C;&#x4E00;&#x6B21;&#xFF0C;done &#x53EA;&#x4F1A;&#x88AB;&#x4FEE;&#x6539;&#x4E00;&#x6B21;&#x3002;</p>
-<h2 id="22-done-&#x4E3A;&#x4EC0;&#x4E48;&#x662F;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#xFF1F;"><a name="22-done-&#x4E3A;&#x4EC0;&#x4E48;&#x662F;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#xFF1F;" class="anchor-navigation-ex-anchor" href="#22-done-&#x4E3A;&#x4EC0;&#x4E48;&#x662F;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#xFF1F;"><i class="fa fa-link" aria-hidden="true"></i></a>2.2. 2.2 done &#x4E3A;&#x4EC0;&#x4E48;&#x662F;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#xFF1F;</h2>
+<h2 id="22-done-&#x4E3A;&#x4EC0;&#x4E48;&#x662F;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#xFF1F;"><a name="22-done-&#x4E3A;&#x4EC0;&#x4E48;&#x662F;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#xFF1F;" class="anchor-navigation-ex-anchor" href="#22-done-&#x4E3A;&#x4EC0;&#x4E48;&#x662F;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#xFF1F;"><i class="fa fa-link" aria-hidden="true"></i></a>2.2 done &#x4E3A;&#x4EC0;&#x4E48;&#x662F;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#xFF1F;</h2>
 <p>&#x4ECE;&#x5B57;&#x6BB5; done &#x524D;&#x6709;&#x4E00;&#x6BB5;&#x6CE8;&#x91CA;&#xFF0C;&#x8BF4;&#x660E;&#x4E86;done &#x4E3A;&#x4EC0;&#x4E48;&#x662F;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#x3002;</p>
 <p>done &#x5728;&#x70ED;&#x8DEF;&#x5F84;&#x4E2D;&#xFF0C;done &#x653E;&#x5728;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#xFF0C;&#x80FD;&#x591F;&#x51CF;&#x5C11; CPU &#x6307;&#x4EE4;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x8FD9;&#x6837;&#x505A;&#x80FD;&#x591F;&#x63D0;&#x5347;&#x6027;&#x80FD;&#x3002;</p>
 <p>&#x70ED;&#x8DEF;&#x5F84;&#xFF08;hot path&#xFF09;&#x662F;&#x7A0B;&#x5E8F;&#x975E;&#x5E38;&#x9891;&#x7E41;&#x6267;&#x884C;&#x7684;&#x4E00;&#x7CFB;&#x5217;&#x6307;&#x4EE4;&#xFF0C;sync.Once &#x7EDD;&#x5927;&#x90E8;&#x5206;&#x573A;&#x666F;&#x90FD;&#x4F1A;&#x8BBF;&#x95EE; o.done&#xFF0C;&#x5728;&#x70ED;&#x8DEF;&#x5F84;&#x4E0A;&#x662F;&#x6BD4;&#x8F83;&#x597D;&#x7406;&#x89E3;&#x7684;&#x3002;&#x5982;&#x679C; hot path &#x7F16;&#x8BD1;&#x540E;&#x7684;&#x673A;&#x5668;&#x7801;&#x6307;&#x4EE4;&#x66F4;&#x5C11;&#xFF0C;&#x66F4;&#x76F4;&#x63A5;&#xFF0C;&#x5FC5;&#x7136;&#x662F;&#x80FD;&#x591F;&#x63D0;&#x5347;&#x6027;&#x80FD;&#x7684;&#x3002;</p>
@@ -1102,7 +1098,7 @@
 <blockquote>
 <p>&#x53C2;&#x8003; <a href="https://stackoverflow.com/questions/59174176/what-does-hot-path-mean-in-the-context-of-sync-once" target="_blank">What does &#x201C;hot path&#x201D; mean in the context of sync.Once? - StackOverflow</a></p>
 </blockquote>
-<h1 id="3&#x6027;&#x80FD;&#x5DEE;&#x5F02;"><a name="3&#x6027;&#x80FD;&#x5DEE;&#x5F02;" class="anchor-navigation-ex-anchor" href="#3&#x6027;&#x80FD;&#x5DEE;&#x5F02;"><i class="fa fa-link" aria-hidden="true"></i></a>3. 3.&#x6027;&#x80FD;&#x5DEE;&#x5F02;</h1>
+<h1 id="3&#x6027;&#x80FD;&#x5DEE;&#x5F02;"><a name="3&#x6027;&#x80FD;&#x5DEE;&#x5F02;" class="anchor-navigation-ex-anchor" href="#3&#x6027;&#x80FD;&#x5DEE;&#x5F02;"><i class="fa fa-link" aria-hidden="true"></i></a>3.&#x6027;&#x80FD;&#x5DEE;&#x5F02;</h1>
 <p>&#x6211;&#x4EEC;&#x4EE5;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x793A;&#x4F8B;&#xFF0C;&#x6765;&#x8BF4;&#x660E;&#x4F7F;&#x7528; sync.Once &#x4FDD;&#x8BC1;&#x51FD;&#x6570;&#x53EA;&#x4F1A;&#x88AB;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x548C;&#x591A;&#x6B21;&#x6267;&#x884C;&#xFF0C;&#x4E8C;&#x8005;&#x7684;&#x6027;&#x80FD;&#x5DEE;&#x5F02;&#x3002;</p>
 <p>&#x8003;&#x8651;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x573A;&#x666F;&#xFF0C;&#x51FD;&#x6570; ReadConfig &#x9700;&#x8981;&#x8BFB;&#x53D6;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x5E76;&#x8F6C;&#x6362;&#x4E3A;&#x5BF9;&#x5E94;&#x7684;&#x914D;&#x7F6E;&#x3002;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x5728;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#x524D;&#x5DF2;&#x7ECF;&#x786E;&#x5B9A;&#xFF0C;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x4E0D;&#x4F1A;&#x53D1;&#x751F;&#x6539;&#x53D8;&#x3002;ReadConfig &#x53EF;&#x80FD;&#x4F1A;&#x88AB;&#x591A;&#x4E2A;&#x534F;&#x7A0B;&#x5E76;&#x53D1;&#x8C03;&#x7528;&#xFF0C;&#x4E3A;&#x4E86;&#x63D0;&#x5347;&#x6027;&#x80FD;&#xFF08;&#x51CF;&#x5C11;&#x6267;&#x884C;&#x65F6;&#x95F4;&#x548C;&#x5185;&#x5B58;&#x5360;&#x7528;&#xFF09;&#xFF0C;&#x4F7F;&#x7528; sync.Once &#x662F;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x597D;&#x7684;&#x65B9;&#x5F0F;&#x3002;</p>
 <pre><code class="lang-go"><span class="hljs-keyword">type</span> Config <span class="hljs-keyword">struct</span> {
@@ -1160,6 +1156,7 @@ ok      main/once       3.006s
 <footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x7AE0;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
 2022-05-08 19:22:09
 </span></footer>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
                                 </section>
                             
@@ -1202,7 +1199,7 @@ ok      main/once       3.006s
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.使用 sync.Once 避免重复执行","level":"1.5.4.3","depth":3,"next":{"title":"4.使用 sync.Cond 通知协程","level":"1.5.4.4","depth":3,"path":"第四篇：最佳性能/3.并发编程/4.使用sync.Cond通知协程.md","ref":"第四篇：最佳性能/3.并发编程/4.使用sync.Cond通知协程.md","articles":[]},"previous":{"title":"2.限制协程数量","level":"1.5.4.2","depth":3,"path":"第四篇：最佳性能/3.并发编程/2.限制协程数量.md","ref":"第四篇：最佳性能/3.并发编程/2.限制协程数量.md","articles":[]},"dir":"ltr"},"config":{"plugins":["insert-logo","custom-favicon","splitter","disqus","pageview-count","tbfed-pagefooter","github","code","sidebar-style","anchor-navigation-expand","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"sidebar-style":{"author":"","title":"Go 编码建议"},"tbfed-pagefooter":{"copyright":"","modify_label":"该文章修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"disqus":{"useIdentifier":false,"shortName":"go-coding-advice"},"github":{"url":"https://github.com/dablelv/go-coding-advice"},"livereload":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"assets/images/favicon.ico","pageview-count":{},"custom-favicon":{},"anchor-navigation-expand":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 100px;","url":"assets/images/logo.jpg"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Go 编码建议","links":{"sidebar":{"个人站点":"https://dablelv.github.io/dablelvweb","CSDN 主页":"https://dablelv.blog.csdn.net","GitHub 主页":"https://github.com/dablelv","本书 GitHub 地址 ":"https://github.com/dablelv/go-coding-advice"}},"gitbook":"*"},"file":{"path":"第四篇：最佳性能/3.并发编程/3.使用sync.Once避免重复执行.md","mtime":"2022-05-08T11:22:09.379Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-21T08:44:22.022Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.使用 sync.Once 避免重复执行","level":"1.5.4.3","depth":3,"next":{"title":"4.使用 sync.Cond 通知协程","level":"1.5.4.4","depth":3,"path":"第四篇：最佳性能/3.并发编程/4.使用sync.Cond通知协程.md","ref":"第四篇：最佳性能/3.并发编程/4.使用sync.Cond通知协程.md","articles":[]},"previous":{"title":"2.限制协程数量","level":"1.5.4.2","depth":3,"path":"第四篇：最佳性能/3.并发编程/2.限制协程数量.md","ref":"第四篇：最佳性能/3.并发编程/2.限制协程数量.md","articles":[]},"dir":"ltr"},"config":{"plugins":["insert-logo","custom-favicon","splitter","disqus","tbfed-pagefooter","github","code","sidebar-style","anchor-navigation-expand","popup","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"sidebar-style":{"author":"","title":"Go 编码建议"},"tbfed-pagefooter":{"copyright":"","modify_label":"该文章修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"disqus":{"useIdentifier":false,"shortName":"go-coding-advice"},"github":{"url":"https://github.com/dablelv/go-coding-advice"},"livereload":{},"splitter":{},"search":{},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"assets/images/favicon.ico","custom-favicon":{},"anchor-navigation-expand":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 100px;","url":"https://dablelv.github.io/go-coding-advice/assets/images/logo.jpg"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Go 编码建议","links":{"sidebar":{"个人站点":"https://dablelv.github.io/dablelvweb","CSDN 主页":"https://dablelv.blog.csdn.net","GitHub 主页":"https://github.com/dablelv","本书 GitHub 地址 ":"https://github.com/dablelv/go-coding-advice"}},"gitbook":"*"},"file":{"path":"第四篇：最佳性能/3.并发编程/3.使用sync.Once避免重复执行.md","mtime":"2022-05-08T11:22:09.379Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-21T14:13:05.021Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1225,10 +1222,6 @@ ok      main/once       3.006s
     
         
         <script src="../../gitbook/gitbook-plugin-disqus/plugin.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
         
     
         

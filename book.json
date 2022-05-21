@@ -13,16 +13,16 @@
     "custom-favicon",
     "splitter",
     "disqus",
-    "pageview-count",
     "tbfed-pagefooter",
     "github",
     "code",
     "sidebar-style",
-    "anchor-navigation-expand"
+    "anchor-navigation-expand",
+    "popup"
   ],
   "pluginsConfig":{
     "insert-logo":{
-      "url": "assets/images/logo.jpg",
+      "url": "https://dablelv.github.io/go-coding-advice/assets/images/logo.jpg",
       "style": "background: none; max-height: 100px;"
     },
     "disqus": {
@@ -40,6 +40,9 @@
     "sidebar-style": {
       "title": "Go 编码建议",
       "author": ""
+    },
+    "anchor-navigation-expand":{
+      "showLevel": false
     }
   }
 }
