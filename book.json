@@ -8,6 +8,9 @@
       "本书 GitHub 地址 ":"https://github.com/dablelv/go-coding-advice"
     }
   },
+  "styles": {
+    "website": "styles/website.css"
+  },
   "plugins": [
     "insert-logo",
     "custom-favicon",

@@ -62,15 +62,7 @@
 
     
         
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <link rel="stylesheet" href="../styles/website.css">
         
     
 
@@ -291,12 +283,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.8" data-path="8.命名规范.html">
+        <li class="chapter " data-level="1.3.8" data-path="8.命名.html">
             
-                <a href="8.命名规范.html">
+                <a href="8.命名.html">
             
                     
-                    8.命名规范
+                    8.命名
             
                 </a>
             
@@ -1050,47 +1042,52 @@
 )
 </code></pre>
 <ul>
-<li>&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#x5BFC;&#x5165;&#x5185;&#x90E8;&#x5305;&#xFF0C;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;&#x5B8C;&#x6574;&#x7684;&#x8DEF;&#x5F84;&#x5F15;&#x5165;&#x5305;&#x3002;
-```go
-// Bad
-import (
-  &quot;../net&quot;
-)</li>
+<li>&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#x5BFC;&#x5165;&#x5185;&#x90E8;&#x5305;&#xFF0C;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;&#x5B8C;&#x6574;&#x7684;&#x8DEF;&#x5F84;&#x5F15;&#x5165;&#x5305;&#x3002;</li>
 </ul>
-<p>// Good
-import (
-    &quot;xxxx.com/proj/net&quot;
-)</p>
-<pre><code>- &#x5FC5;&#x8981;&#x65F6;&#x7ED9;&#x5305;&#x8D77;&#x4E2A;&#x522B;&#x540D;
-
-&#x5305;&#x540D;&#x548C; git &#x8DEF;&#x5F84;&#x540D;&#x4E0D;&#x4E00;&#x81F4;&#x65F6;&#xFF0C;&#x6216;&#x8005;&#x591A;&#x4E2A;&#x76F8;&#x540C;&#x5305;&#x540D;&#x51B2;&#x7A81;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;&#x522B;&#x540D;&#x4EE3;&#x66FF;&#x4F1A;&#x6709;&#x66F4;&#x597D;&#x7684;&#x53EF;&#x8BFB;&#x6027;&#x3002;
-```go
-// Bad
-import (
-    elastic &quot;github.com/olivere/elastic/v7&quot;
+<pre><code class="lang-go"><span class="hljs-comment">// Bad</span>
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;../net&quot;</span>
 )
 
-// Good
-import (
-    elastic &quot;github.com/olivere/elastic/v7&quot;
+<span class="hljs-comment">// Good</span>
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;xxxx.com/proj/net&quot;</span>
 )
-</code></pre><ul>
-<li>&#x901A;&#x7528;&#x7684;&#x529F;&#x80FD;&#x5305;&#xFF0C;&#x5E94;&#x8BE5;&#x653E;&#x5728; public &#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5177;&#x4F53;&#x4E1A;&#x52A1;&#x76EE;&#x5F55;&#x4E0B;&#x3002;
-```go
-// Bad
-import &quot;github.com/xxxxxxxx/XXXServer/pkg/formatlog&quot;</li>
+</code></pre>
+<ul>
+<li>&#x5FC5;&#x8981;&#x65F6;&#x7ED9;&#x5305;&#x8D77;&#x4E2A;&#x522B;&#x540D;</li>
 </ul>
-<p>// Good
-import &quot;github.com/xxxxxxxx/utils/formatlog&quot;</p>
-<pre><code>- `import .` &#x53EA;&#x80FD;&#x7528;&#x4E8E;&#x6D4B;&#x8BD5;&#x6587;&#x4EF6;&#xFF0C;&#x4E14;&#x5FC5;&#x987B;&#x662F;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#xFF0C;&#x624D;&#x80FD;&#x4F7F;&#x7528;&#x3002;
-```go
-package foo_test
-
-import (
-    &quot;bar/testutil&quot; // also imports &quot;foo&quot;
-    . &quot;foo&quot;
+<p>&#x5305;&#x540D;&#x548C; git &#x8DEF;&#x5F84;&#x540D;&#x4E0D;&#x4E00;&#x81F4;&#x65F6;&#xFF0C;&#x6216;&#x8005;&#x591A;&#x4E2A;&#x76F8;&#x540C;&#x5305;&#x540D;&#x51B2;&#x7A81;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;&#x522B;&#x540D;&#x4EE3;&#x66FF;&#x4F1A;&#x6709;&#x66F4;&#x597D;&#x7684;&#x53EF;&#x8BFB;&#x6027;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// Bad</span>
+<span class="hljs-keyword">import</span> (
+    elastic <span class="hljs-string">&quot;github.com/olivere/elastic/v7&quot;</span>
 )
-</code></pre><p>&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6D4B;&#x8BD5;&#x6587;&#x4EF6;&#x4E0D;&#x80FD;&#x5728;&#x5305; foo &#x4E2D;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4F7F;&#x7528; bar/testutil&#xFF0C;&#x540E;&#x8005;&#x5BFC;&#x5165; foo&#x3002;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x4F7F;&#x7528;<code>import .</code>&#x5F62;&#x5F0F;&#x5BFC;&#x5165;&#x5305; foo&#xFF0C;&#x8BA9;&#x6D4B;&#x8BD5;&#x6587;&#x4EF6;&#x5047;&#x88C5;&#x662F;&#x5305; foo &#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x5C3D;&#x7BA1;&#x5B83;&#x4E0D;&#x662F;&#x3002;&#x9664;&#x4E86;&#x8FD9;&#x4E00;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;&#x4E0D;&#x8981;&#x4F7F;&#x7528;<code>import .</code>&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4F7F;&#x7A0B;&#x5E8F;&#x96BE;&#x4EE5;&#x9605;&#x8BFB;&#xFF0C;&#x6BD4;&#x5982;&#x4F7F;&#x7528; Baz &#x8FD9;&#x6837;&#x7684;&#x6807;&#x8BC6;&#x7B26;&#xFF0C;&#x4E0D;&#x77E5;&#x9053;&#x5176;&#x662F;&#x9876;&#x7EA7;&#x6807;&#x8BC6;&#x7B26;&#x8FD8;&#x662F;&#x5BFC;&#x5165;&#x5305;&#x4E2D;&#x7684;&#x9876;&#x7EA7;&#x6807;&#x8BC6;&#x7B26;&#x3002;</p>
+
+<span class="hljs-comment">// Good</span>
+<span class="hljs-keyword">import</span> (
+    elastic <span class="hljs-string">&quot;github.com/olivere/elastic/v7&quot;</span>
+)
+</code></pre>
+<ul>
+<li>&#x901A;&#x7528;&#x7684;&#x529F;&#x80FD;&#x5305;&#xFF0C;&#x5E94;&#x8BE5;&#x653E;&#x5728; public &#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5177;&#x4F53;&#x4E1A;&#x52A1;&#x76EE;&#x5F55;&#x4E0B;&#x3002;</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-comment">// Bad</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;github.com/xxxxxxxx/XXXServer/pkg/formatlog&quot;</span>
+
+<span class="hljs-comment">// Good</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;github.com/xxxxxxxx/utils/formatlog&quot;</span>
+</code></pre>
+<ul>
+<li><code>import .</code> &#x53EA;&#x80FD;&#x7528;&#x4E8E;&#x6D4B;&#x8BD5;&#x6587;&#x4EF6;&#xFF0C;&#x4E14;&#x5FC5;&#x987B;&#x662F;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#xFF0C;&#x624D;&#x80FD;&#x4F7F;&#x7528;&#x3002;</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> foo_test
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;bar/testutil&quot;</span> <span class="hljs-comment">// also imports &quot;foo&quot;</span>
+    . <span class="hljs-string">&quot;foo&quot;</span>
+)
+</code></pre>
+<p>&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6D4B;&#x8BD5;&#x6587;&#x4EF6;&#x4E0D;&#x80FD;&#x5728;&#x5305; foo &#x4E2D;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4F7F;&#x7528; bar/testutil&#xFF0C;&#x540E;&#x8005;&#x5BFC;&#x5165; foo&#x3002;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x4F7F;&#x7528;<code>import .</code>&#x5F62;&#x5F0F;&#x5BFC;&#x5165;&#x5305; foo&#xFF0C;&#x8BA9;&#x6D4B;&#x8BD5;&#x6587;&#x4EF6;&#x5047;&#x88C5;&#x662F;&#x5305; foo &#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x5C3D;&#x7BA1;&#x5B83;&#x4E0D;&#x662F;&#x3002;&#x9664;&#x4E86;&#x8FD9;&#x4E00;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;&#x4E0D;&#x8981;&#x4F7F;&#x7528;<code>import .</code>&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4F7F;&#x7A0B;&#x5E8F;&#x96BE;&#x4EE5;&#x9605;&#x8BFB;&#xFF0C;&#x6BD4;&#x5982;&#x4F7F;&#x7528; Baz &#x8FD9;&#x6837;&#x7684;&#x6807;&#x8BC6;&#x7B26;&#xFF0C;&#x4E0D;&#x77E5;&#x9053;&#x5176;&#x662F;&#x9876;&#x7EA7;&#x6807;&#x8BC6;&#x7B26;&#x8FD8;&#x662F;&#x5BFC;&#x5165;&#x5305;&#x4E2D;&#x7684;&#x9876;&#x7EA7;&#x6807;&#x8BC6;&#x7B26;&#x3002;</p>
 <ul>
 <li>&#x5F15;&#x5165;&#x7B2C;&#x4E09;&#x65B9;&#x5305;&#x8981;&#x614E;&#x91CD;&#x3002;</li>
 </ul>
@@ -1099,7 +1096,7 @@ import (
 github.com/astaxie/beego/orm
 </code></pre>
 <footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x7AE0;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2022-05-01 20:52:32
+2022-05-22 15:40:04
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -1144,7 +1141,7 @@ github.com/astaxie/beego/orm
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.依赖管理","level":"1.3.4","depth":2,"next":{"title":"5.初始化","level":"1.3.5","depth":2,"path":"第二篇：代码风格/5.初始化.md","ref":"第二篇：代码风格/5.初始化.md","articles":[]},"previous":{"title":"3.字符串","level":"1.3.3","depth":2,"path":"第二篇：代码风格/3.字符串.md","ref":"第二篇：代码风格/3.字符串.md","articles":[]},"dir":"ltr"},"config":{"plugins":["insert-logo","custom-favicon","splitter","disqus","tbfed-pagefooter","github","code","sidebar-style","anchor-navigation-expand","popup","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"sidebar-style":{"author":"","title":"Go 编码建议"},"tbfed-pagefooter":{"copyright":"","modify_label":"该文章修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"disqus":{"useIdentifier":false,"shortName":"go-coding-advice"},"github":{"url":"https://github.com/dablelv/go-coding-advice"},"livereload":{},"splitter":{},"search":{},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"assets/images/favicon.ico","custom-favicon":{},"anchor-navigation-expand":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 100px;","url":"https://dablelv.github.io/go-coding-advice/assets/images/logo.jpg"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Go 编码建议","links":{"sidebar":{"个人站点":"https://dablelv.github.io/dablelvweb","CSDN 主页":"https://dablelv.blog.csdn.net","GitHub 主页":"https://github.com/dablelv","本书 GitHub 地址 ":"https://github.com/dablelv/go-coding-advice"}},"gitbook":"*"},"file":{"path":"第二篇：代码风格/4.依赖管理.md","mtime":"2022-05-01T12:52:32.610Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-21T14:13:05.021Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.依赖管理","level":"1.3.4","depth":2,"next":{"title":"5.初始化","level":"1.3.5","depth":2,"path":"第二篇：代码风格/5.初始化.md","ref":"第二篇：代码风格/5.初始化.md","articles":[]},"previous":{"title":"3.字符串","level":"1.3.3","depth":2,"path":"第二篇：代码风格/3.字符串.md","ref":"第二篇：代码风格/3.字符串.md","articles":[]},"dir":"ltr"},"config":{"plugins":["insert-logo","custom-favicon","splitter","disqus","tbfed-pagefooter","github","code","sidebar-style","anchor-navigation-expand","popup","livereload"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"sidebar-style":{"author":"","title":"Go 编码建议"},"tbfed-pagefooter":{"copyright":"","modify_label":"该文章修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"disqus":{"useIdentifier":false,"shortName":"go-coding-advice"},"github":{"url":"https://github.com/dablelv/go-coding-advice"},"livereload":{},"splitter":{},"search":{},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"assets/images/favicon.ico","custom-favicon":{},"anchor-navigation-expand":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 100px;","url":"https://dablelv.github.io/go-coding-advice/assets/images/logo.jpg"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Go 编码建议","links":{"sidebar":{"个人站点":"https://dablelv.github.io/dablelvweb","CSDN 主页":"https://dablelv.blog.csdn.net","GitHub 主页":"https://github.com/dablelv","本书 GitHub 地址 ":"https://github.com/dablelv/go-coding-advice"}},"gitbook":"*"},"file":{"path":"第二篇：代码风格/4.依赖管理.md","mtime":"2022-05-22T07:40:04.744Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-22T14:47:45.490Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
