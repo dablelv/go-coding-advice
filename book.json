@@ -1,5 +1,6 @@
 {
   "title":"Go 编码建议",
+  "author": "Dablelv",
   "links" : {
     "sidebar" : {
       "个人站点":"https://dablelv.github.io/dablelvweb",
@@ -12,7 +13,6 @@
     "website": "styles/website.css"
   },
   "plugins": [
-    "insert-logo",
     "custom-favicon",
     "splitter",
     "disqus",
@@ -24,10 +24,6 @@
     "popup"
   ],
   "pluginsConfig":{
-    "insert-logo":{
-      "url": "https://dablelv.github.io/go-coding-advice/assets/images/logo.jpg",
-      "style": "background: none; max-height: 100px;"
-    },
     "disqus": {
       "shortName": "go-coding-advice"
     },
