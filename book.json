@@ -1,5 +1,6 @@
 {
   "title":"Go 编码建议",
+  "description":"一本关于 Go 编码风格的开源电子书",
   "author": "Dablelv",
   "links" : {
     "sidebar" : {
@@ -37,7 +38,7 @@
       "url": "https://github.com/dablelv/go-coding-advice"
     },
     "sidebar-style": {
-      "title": "Go 编码建议",
+      "title": "<br>Go 编码建议<br><br>",
       "author": ""
     },
     "anchor-navigation-expand":{
