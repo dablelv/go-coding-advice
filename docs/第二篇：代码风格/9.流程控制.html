@@ -1056,42 +1056,44 @@ fmt.Println(cfg)
 }
 </code></pre>
 <ul>
-<li>if &#x5BF9;&#x4E8E; bool &#x7C7B;&#x578B;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x5E94;&#x76F4;&#x63A5;&#x8FDB;&#x884C;&#x771F;&#x5047;&#x5224;&#x65AD;&#x3002;
-```go
-var allowUserLogin bool
-// Bad
-if allowUserLogin == true {
-  // do something
-}
-if allowUserLogin == false {
-  // do something
-}</li>
+<li>if &#x5BF9;&#x4E8E; bool &#x7C7B;&#x578B;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x5E94;&#x76F4;&#x63A5;&#x8FDB;&#x884C;&#x771F;&#x5047;&#x5224;&#x65AD;&#x3002;</li>
 </ul>
-<p>// Good
-if allowUserLogin {
-    // do something
+<pre><code class="lang-go"><span class="hljs-keyword">var</span> allowUserLogin <span class="hljs-keyword">bool</span>
+<span class="hljs-comment">// Bad</span>
+<span class="hljs-keyword">if</span> allowUserLogin == <span class="hljs-literal">true</span> {
+    <span class="hljs-comment">// do something</span>
 }
-if !allowUserLogin {
-    // do something
-}</p>
-<pre><code>- &#x4E0D;&#x5FC5;&#x8981;&#x7684; else&#x3002;
-
-&#x5982;&#x679C;&#x5728; if &#x7684;&#x4E24;&#x4E2A;&#x5206;&#x652F;&#x4E2D;&#x90FD;&#x8BBE;&#x7F6E;&#x53D8;&#x91CF;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x66FF;&#x6362;&#x4E3A;&#x5355;&#x4E2A; if&#x3002;
-```go
-// Bad
-var a int
-if b {
-  a = 100
-} else {
-  a = 10
+<span class="hljs-keyword">if</span> allowUserLogin == <span class="hljs-literal">false</span> {
+    <span class="hljs-comment">// do something</span>
 }
 
-// Good
-a := 10
-if b {
-  a = 100
+<span class="hljs-comment">// Good</span>
+<span class="hljs-keyword">if</span> allowUserLogin {
+    <span class="hljs-comment">// do something</span>
 }
-</code></pre><p>&#x53C8;&#x5982; if else &#x901A;&#x5E38;&#x53EF;&#x4EE5;&#x7B80;&#x5199;&#x4E3A; if return&#x3002;</p>
+<span class="hljs-keyword">if</span> !allowUserLogin {
+    <span class="hljs-comment">// do something</span>
+}
+</code></pre>
+<ul>
+<li>&#x4E0D;&#x5FC5;&#x8981;&#x7684; else&#x3002;</li>
+</ul>
+<p>&#x5982;&#x679C;&#x5728; if &#x7684;&#x4E24;&#x4E2A;&#x5206;&#x652F;&#x4E2D;&#x90FD;&#x8BBE;&#x7F6E;&#x53D8;&#x91CF;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x66FF;&#x6362;&#x4E3A;&#x5355;&#x4E2A; if&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// Bad</span>
+<span class="hljs-keyword">var</span> a <span class="hljs-keyword">int</span>
+<span class="hljs-keyword">if</span> b {
+  a = <span class="hljs-number">100</span>
+} <span class="hljs-keyword">else</span> {
+  a = <span class="hljs-number">10</span>
+}
+
+<span class="hljs-comment">// Good</span>
+a := <span class="hljs-number">10</span>
+<span class="hljs-keyword">if</span> b {
+  a = <span class="hljs-number">100</span>
+}
+</code></pre>
+<p>&#x53C8;&#x5982; if else &#x901A;&#x5E38;&#x53EF;&#x4EE5;&#x7B80;&#x5199;&#x4E3A; if return&#x3002;</p>
 <pre><code class="lang-go"><span class="hljs-comment">// Bad</span>
 <span class="hljs-keyword">func</span> Foo(bar <span class="hljs-keyword">int</span>) {
     <span class="hljs-keyword">if</span> bar == <span class="hljs-number">1</span> {
@@ -1111,37 +1113,42 @@ if b {
 }
 </code></pre>
 <ul>
-<li>&#x591A;&#x4E2A;&#x76F8;&#x4F3C; if &#x7528; switch &#x66FF;&#x6362;&#x3002;
-```go
-// Bad
-func foo(key string) {
-  if key == pathKey {<pre><code>  ...
-</code></pre>  }
-  if key == urlKey {<pre><code>  ...
-</code></pre>  }
-}</li>
+<li>&#x591A;&#x4E2A;&#x76F8;&#x4F3C; if &#x7528; switch &#x66FF;&#x6362;&#x3002;</li>
 </ul>
-<p>// Good
-func foo(key string) {
-    switch key {
-    case pathKey:
-        ...
-    case urlKey:
+<pre><code class="lang-go"><span class="hljs-comment">// Bad</span>
+<span class="hljs-keyword">func</span> foo(key <span class="hljs-keyword">string</span>) {
+    <span class="hljs-keyword">if</span> key == pathKey {
         ...
     }
-}</p>
-<pre><code>- &#x4F7F;&#x7528; == &quot;&quot; &#x5224;&#x65AD;&#x5B57;&#x7B26;&#x4E32;&#x662F;&#x5426;&#x4E3A;&#x7A7A;&#xFF0C;&#x8FD9;&#x6837;&#x66F4;&#x52A0;&#x76F4;&#x89C2;&#x3002;
-```go
-// Bad
-if len(str) == 0 {
+    <span class="hljs-keyword">if</span> key == urlKey {
+        ...
+    }
+}
+
+<span class="hljs-comment">// Good</span>
+<span class="hljs-keyword">func</span> foo(key <span class="hljs-keyword">string</span>) {
+    <span class="hljs-keyword">switch</span> key {
+    <span class="hljs-keyword">case</span> pathKey:
+        ...
+    <span class="hljs-keyword">case</span> urlKey:
+        ...
+    }
+}
+</code></pre>
+<ul>
+<li>&#x4F7F;&#x7528; == &quot;&quot; &#x5224;&#x65AD;&#x5B57;&#x7B26;&#x4E32;&#x662F;&#x5426;&#x4E3A;&#x7A7A;&#xFF0C;&#x8FD9;&#x6837;&#x66F4;&#x52A0;&#x76F4;&#x89C2;&#x3002;</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-comment">// Bad</span>
+<span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(str) == <span class="hljs-number">0</span> {
     ...
 }
 
-// Good
-if str == &quot;&quot; {
+<span class="hljs-comment">// Good</span>
+<span class="hljs-keyword">if</span> str == <span class="hljs-string">&quot;&quot;</span> {
     ...
 }
-</code></pre><ul>
+</code></pre>
+<ul>
 <li>&#x628A;&#x7B80;&#x5355;&#x7684;&#x903B;&#x8F91;&#x5224;&#x65AD;&#x653E;&#x524D;&#x9762;&#xFF0C;&#x590D;&#x6742;&#x7684;&#x903B;&#x8F91;&#x5224;&#x65AD;&#x653E;&#x540E;&#x9762;&#x3002;</li>
 <li>&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x53CC;&#x91CD;&#x5426;&#x5B9A;&#x3002;</li>
 <li>&#x5224;&#x65AD;&#x6761;&#x4EF6;&#x8F83;&#x4E3A;&#x590D;&#x6742;&#x65F6;&#xFF0C;&#x8003;&#x8651;&#x5C01;&#x88C5;&#x6210;&#x51FD;&#x6570;&#x3002;</li>
@@ -1261,9 +1268,10 @@ codeUsing(f, d)
 <li>&#x4F7F;&#x7528;<code>os.Exit</code>&#x6216;&#x8005;<code>log.Fatal*</code>&#x9000;&#x51FA;&#x7A0B;&#x5E8F;&#xFF0C;&#x800C;&#x4E0D;&#x662F;<code>panic</code>&#x3002;</li>
 <li>&#x5728; main() &#x4E2D;&#x9000;&#x51FA;&#x7A0B;&#x5E8F;&#x4E14;&#x53EA;&#x9000;&#x51FA;&#x4E00;&#x6B21;&#x3002;</li>
 </ul>
-<p>&#x4EC5;&#x5728; main() &#x51FD;&#x6570;&#x4E2D;&#x8C03;&#x7528;<code>os.Exit</code>&#x6216;<code>log.Fatal*</code>&#x4E14;&#x53EA;&#x8C03;&#x7528;&#x4E00;&#x6B21;&#x3002;&#x5982;&#x679C;&#x6709;&#x591A;&#x4E2A;&#x9519;&#x8BEF;&#x573A;&#x666F;&#x505C;&#x6B62;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#xFF0C;&#x8BF7;&#x5C06;&#x8BE5;&#x903B;&#x8F91;&#x653E;&#x5728;&#x5355;&#x72EC;&#x7684;&#x51FD;&#x6570;&#x5E76;&#x4ECE;&#x4E2D;&#x8FD4;&#x56DE;&#x9519;&#x8BEF;&#x3002; &#x8FD9;&#x4F1A;&#x7CBE;&#x7B80;<code>main()</code>&#x51FD;&#x6570;&#xFF0C;&#x5E76;&#x5C06;&#x6240;&#x6709;&#x5173;&#x952E;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x653E;&#x5165;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x3001;&#x53EF;&#x6D4B;&#x8BD5;&#x7684;&#x51FD;&#x6570;&#x4E2D;&#x3002;</p>
+<p>&#x4EC5;&#x5728; main() &#x51FD;&#x6570;&#x4E2D;&#x8C03;&#x7528;<code>os.Exit</code>&#x6216;<code>log.Fatal*</code>&#x4E14;&#x53EA;&#x8C03;&#x7528;&#x4E00;&#x6B21;&#x3002;&#x5982;&#x679C;&#x6709;&#x591A;&#x4E2A;&#x9519;&#x8BEF;&#x573A;&#x666F;&#x505C;&#x6B62;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#xFF0C;&#x8BF7;&#x5C06;&#x8BE5;&#x903B;&#x8F91;&#x653E;&#x5728;&#x5355;&#x72EC;&#x7684;&#x51FD;&#x6570;&#x5E76;&#x4ECE;&#x4E2D;&#x8FD4;&#x56DE;&#x9519;&#x8BEF;&#x3002; &#x8FD9;&#x4F1A;&#x7CBE;&#x7B80; main() &#x51FD;&#x6570;&#xFF0C;&#x5E76;&#x5C06;&#x6240;&#x6709;&#x5173;&#x952E;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x653E;&#x5165;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x3001;&#x53EF;&#x6D4B;&#x8BD5;&#x7684;&#x51FD;&#x6570;&#x4E2D;&#x3002;</p>
 <pre><code class="lang-go"><span class="hljs-comment">// Bad</span>
 <span class="hljs-keyword">package</span> main
+
 <span class="hljs-keyword">func</span> main() {
   args := os.Args[<span class="hljs-number">1</span>:]
   <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(args) != <span class="hljs-number">1</span> {
@@ -1285,11 +1293,13 @@ codeUsing(f, d)
 
 <span class="hljs-comment">// Good</span>
 <span class="hljs-keyword">package</span> main
+
 <span class="hljs-keyword">func</span> main() {
   <span class="hljs-keyword">if</span> err := run(); err != <span class="hljs-literal">nil</span> {
     log.Fatal(err)
   }
 }
+
 <span class="hljs-keyword">func</span> run() error {
   args := os.Args[<span class="hljs-number">1</span>:]
   <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(args) != <span class="hljs-number">1</span> {
@@ -1313,7 +1323,7 @@ codeUsing(f, d)
 <p>&#xFF08;2&#xFF09;&#x96BE;&#x4EE5;&#x6D4B;&#x8BD5;&#xFF1A;&#x9000;&#x51FA;&#x7A0B;&#x5E8F;&#x7684;&#x51FD;&#x6570;&#x4E5F;&#x5C06;&#x9000;&#x51FA;&#x8C03;&#x7528;&#x5B83;&#x7684;&#x6D4B;&#x8BD5;&#xFF0C;&#x8FD9;&#x4F7F;&#x5F97;&#x51FD;&#x6570;&#x5F88;&#x96BE;&#x6D4B;&#x8BD5;&#xFF0C;&#x5E76;&#x8DF3;&#x8FC7;&#x4E86;&#x5C1A;&#x672A;&#x88AB;&#x8FD0;&#x884C;&#x7684;&#x5176;&#x4ED6;&#x4EE3;&#x7801;&#xFF1B;</p>
 <p>&#xFF08;3&#xFF09;&#x8DF3;&#x8FC7;&#x6E05;&#x7406;&#xFF1A;&#x5F53;&#x51FD;&#x6570;&#x9000;&#x51FA;&#x7A0B;&#x5E8F;&#x65F6;&#xFF0C;&#x4F1A;&#x8DF3;&#x8FC7;&#x5DF2;&#x7ECF;&#x8FDB;&#x5165; defer &#x961F;&#x5217;&#x91CC;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#xFF0C;&#x8FD9;&#x589E;&#x52A0;&#x4E86;&#x8DF3;&#x8FC7;&#x91CD;&#x8981;&#x6E05;&#x7406;&#x4EFB;&#x52A1;&#x7684;&#x98CE;&#x9669;&#x3002; </p>
 <footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x7AE0;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2022-09-23 21:09:39
+2022-11-23 20:50:45
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -1358,7 +1368,7 @@ codeUsing(f, d)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"9.流程控制","level":"1.3.9","depth":2,"next":{"title":"10.函数","level":"1.3.10","depth":2,"path":"第二篇：代码风格/10.函数.md","ref":"第二篇：代码风格/10.函数.md","articles":[]},"previous":{"title":"8.命名","level":"1.3.8","depth":2,"path":"第二篇：代码风格/8.命名.md","ref":"第二篇：代码风格/8.命名.md","articles":[]},"dir":"ltr"},"config":{"plugins":["custom-favicon","splitter","disqus","tbfed-pagefooter","github","code","sidebar-style","anchor-navigation-expand","popup","livereload"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"sidebar-style":{"author":"","title":"<br>Go 编码建议<br><br>"},"tbfed-pagefooter":{"copyright":"","modify_label":"该文章修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"disqus":{"useIdentifier":false,"shortName":"go-coding-advice"},"github":{"url":"https://github.com/dablelv/go-coding-advice"},"livereload":{},"splitter":{},"search":{},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"assets/images/favicon.ico","custom-favicon":{},"anchor-navigation-expand":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Dablelv","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Go 编码建议","links":{"sidebar":{"个人站点":"https://dablelv.github.io/dablelvweb","CSDN 主页":"https://dablelv.blog.csdn.net","GitHub 主页":"https://github.com/dablelv","本书 GitHub 地址 ":"https://github.com/dablelv/go-coding-advice"}},"gitbook":"*","description":"一本关于 Go 编码风格的开源电子书"},"file":{"path":"第二篇：代码风格/9.流程控制.md","mtime":"2022-09-23T13:09:39.102Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-24T09:41:19.132Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"9.流程控制","level":"1.3.9","depth":2,"next":{"title":"10.函数","level":"1.3.10","depth":2,"path":"第二篇：代码风格/10.函数.md","ref":"第二篇：代码风格/10.函数.md","articles":[]},"previous":{"title":"8.命名","level":"1.3.8","depth":2,"path":"第二篇：代码风格/8.命名.md","ref":"第二篇：代码风格/8.命名.md","articles":[]},"dir":"ltr"},"config":{"plugins":["custom-favicon","splitter","disqus","tbfed-pagefooter","github","code","sidebar-style","anchor-navigation-expand","popup","livereload"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"sidebar-style":{"author":"","title":"<br>Go 编码建议<br><br>"},"tbfed-pagefooter":{"copyright":"","modify_label":"该文章修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"disqus":{"useIdentifier":false,"shortName":"go-coding-advice"},"github":{"url":"https://github.com/dablelv/go-coding-advice"},"livereload":{},"splitter":{},"search":{},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"assets/images/favicon.ico","custom-favicon":{},"anchor-navigation-expand":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Dablelv","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Go 编码建议","links":{"sidebar":{"个人站点":"https://dablelv.github.io/dablelvweb","CSDN 主页":"https://dablelv.blog.csdn.net","GitHub 主页":"https://github.com/dablelv","本书 GitHub 地址 ":"https://github.com/dablelv/go-coding-advice"}},"gitbook":"*","description":"一本关于 Go 编码风格的开源电子书"},"file":{"path":"第二篇：代码风格/9.流程控制.md","mtime":"2022-11-23T12:50:45.187Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-11-23T12:50:57.338Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
