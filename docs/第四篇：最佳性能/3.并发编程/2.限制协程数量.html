@@ -1103,59 +1103,63 @@ main.main.func1(0x0)
 <pre><code>total 997200ns per 99ns
 </code></pre><p>&#x53EF;&#x89C1;&#x4E00;&#x6B21;&#x534F;&#x7A0B;&#x7684;&#x5207;&#x6362;&#xFF0C;&#x8017;&#x65F6;&#x5927;&#x6982;&#x5728; 100ns&#xFF0C;&#x76F8;&#x5BF9;&#x4E8E;&#x7EBF;&#x7A0B;&#x7684;&#x5FAE;&#x79D2;&#x7EA7;&#x8017;&#x65F6;&#x5207;&#x6362;&#xFF0C;&#x6027;&#x80FD;&#x8868;&#x73B0;&#x975E;&#x5E38;&#x4F18;&#x79C0;&#xFF0C;&#x4F46;&#x662F;&#x4ECD;&#x6709;&#x5F00;&#x9500;&#x3002;</p>
 <ul>
-<li>GC &#x5F00;&#x9500;
-&#x521B;&#x5EFA; Go &#x7A0B;&#x5230;&#x8FD0;&#x884C;&#x7ED3;&#x675F;&#xFF0C;&#x5360;&#x7528;&#x7684;&#x5185;&#x5B58;&#x8D44;&#x6E90;&#x662F;&#x9700;&#x8981;&#x7531; GC &#x6765;&#x56DE;&#x6536;&#xFF0C;&#x5982;&#x679C;&#x65E0;&#x4F11;&#x6B62;&#x5730;&#x521B;&#x5EFA;&#x5927;&#x91CF; Go &#x7A0B;&#x540E;&#xFF0C;&#x52BF;&#x5FC5;&#x4F1A;&#x9020;&#x6210;&#x5BF9; GC &#x7684;&#x538B;&#x529B;&#x3002;
-```go
-package main</li>
+<li>GC &#x5F00;&#x9500;</li>
 </ul>
-<p>import (
-    &quot;fmt&quot;
-    &quot;runtime&quot;
-    &quot;runtime/debug&quot;
-    &quot;sync&quot;
-    &quot;time&quot;
-)</p>
-<p>func createLargeNumGoroutine(num int, wg *sync.WaitGroup) {
+<p>&#x521B;&#x5EFA; Go &#x7A0B;&#x5230;&#x8FD0;&#x884C;&#x7ED3;&#x675F;&#xFF0C;&#x5360;&#x7528;&#x7684;&#x5185;&#x5B58;&#x8D44;&#x6E90;&#x662F;&#x9700;&#x8981;&#x7531; GC &#x6765;&#x56DE;&#x6536;&#xFF0C;&#x5982;&#x679C;&#x65E0;&#x4F11;&#x6B62;&#x5730;&#x521B;&#x5EFA;&#x5927;&#x91CF; Go &#x7A0B;&#x540E;&#xFF0C;&#x52BF;&#x5FC5;&#x4F1A;&#x9020;&#x6210;&#x5BF9; GC &#x7684;&#x538B;&#x529B;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;runtime&quot;</span>
+    <span class="hljs-string">&quot;runtime/debug&quot;</span>
+    <span class="hljs-string">&quot;sync&quot;</span>
+    <span class="hljs-string">&quot;time&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> createLargeNumGoroutine(num <span class="hljs-keyword">int</span>, wg *sync.WaitGroup) {
     wg.Add(num)
-    for i := 0; i &lt; num; i++ {
-        go func() {
-            defer wg.Done()
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; num; i++ {
+        <span class="hljs-keyword">go</span> <span class="hljs-keyword">func</span>() {
+            <span class="hljs-keyword">defer</span> wg.Done()
         }()
     }
-}</p>
-<p>func main() {
-    // &#x53EA;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A; Processor &#x4FDD;&#x8BC1; Go &#x7A0B;&#x4E32;&#x884C;&#x6267;&#x884C;
-    runtime.GOMAXPROCS(1)
-    // &#x5173;&#x95ED;GC&#x6539;&#x4E3A;&#x624B;&#x52A8;&#x6267;&#x884C;
-    debug.SetGCPercent(-1)</p>
-<pre><code>var wg sync.WaitGroup
-createLargeNumGoroutine(1000, &amp;wg)
-wg.Wait()
-t := time.Now()
-runtime.GC() // &#x624B;&#x52A8;GC
-cost := time.Since(t)
-fmt.Printf(&quot;GC cost %v when goroutine num is %v\n&quot;, cost, 1000)
+}
 
-createLargeNumGoroutine(10000, &amp;wg)
-wg.Wait()
-t = time.Now()
-runtime.GC() // &#x624B;&#x52A8;GC
-cost = time.Since(t)
-fmt.Printf(&quot;GC cost %v when goroutine num is %v\n&quot;, cost, 10000)
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-comment">// &#x53EA;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A; Processor &#x4FDD;&#x8BC1; Go &#x7A0B;&#x4E32;&#x884C;&#x6267;&#x884C;</span>
+    runtime.GOMAXPROCS(<span class="hljs-number">1</span>)
+    <span class="hljs-comment">// &#x5173;&#x95ED;GC&#x6539;&#x4E3A;&#x624B;&#x52A8;&#x6267;&#x884C;</span>
+    debug.SetGCPercent(<span class="hljs-number">-1</span>)
 
-createLargeNumGoroutine(100000, &amp;wg)
-wg.Wait()
-t = time.Now()
-runtime.GC() // &#x624B;&#x52A8;GC
-cost = time.Since(t)
-fmt.Printf(&quot;GC cost %v when goroutine num is %v\n&quot;, cost, 100000)
-</code></pre><p>}</p>
-<pre><code>&#x8FD0;&#x884C;&#x8F93;&#x51FA;&#xFF1A;
-```shell
-GC cost 0s when goroutine num is 1000
+    <span class="hljs-keyword">var</span> wg sync.WaitGroup
+    createLargeNumGoroutine(<span class="hljs-number">1000</span>, &amp;wg)
+    wg.Wait()
+    t := time.Now()
+    runtime.GC() <span class="hljs-comment">// &#x624B;&#x52A8;GC</span>
+    cost := time.Since(t)
+    fmt.Printf(<span class="hljs-string">&quot;GC cost %v when goroutine num is %v\n&quot;</span>, cost, <span class="hljs-number">1000</span>)
+
+    createLargeNumGoroutine(<span class="hljs-number">10000</span>, &amp;wg)
+    wg.Wait()
+    t = time.Now()
+    runtime.GC() <span class="hljs-comment">// &#x624B;&#x52A8;GC</span>
+    cost = time.Since(t)
+    fmt.Printf(<span class="hljs-string">&quot;GC cost %v when goroutine num is %v\n&quot;</span>, cost, <span class="hljs-number">10000</span>)
+
+    createLargeNumGoroutine(<span class="hljs-number">100000</span>, &amp;wg)
+    wg.Wait()
+    t = time.Now()
+    runtime.GC() <span class="hljs-comment">// &#x624B;&#x52A8;GC</span>
+    cost = time.Since(t)
+    fmt.Printf(<span class="hljs-string">&quot;GC cost %v when goroutine num is %v\n&quot;</span>, cost, <span class="hljs-number">100000</span>)
+}
+</code></pre>
+<p>&#x8FD0;&#x884C;&#x8F93;&#x51FA;&#xFF1A;</p>
+<pre><code class="lang-shell">GC cost 0s when goroutine num is 1000
 GC cost 2.0027ms when goroutine num is 10000
 GC cost 30.9523ms when goroutine num is 100000
-</code></pre><p>&#x5F53;&#x521B;&#x5EFA;&#x7684; Go &#x7A0B;&#x6570;&#x91CF;&#x8D8A;&#x591A;&#xFF0C;GC &#x8017;&#x65F6;&#x8D8A;&#x5927;&#x3002;</p>
+</code></pre>
+<p>&#x5F53;&#x521B;&#x5EFA;&#x7684; Go &#x7A0B;&#x6570;&#x91CF;&#x8D8A;&#x591A;&#xFF0C;GC &#x8017;&#x65F6;&#x8D8A;&#x5927;&#x3002;</p>
 <p>&#x4E0A;&#x9762;&#x7684;&#x5206;&#x6790;&#x76EE;&#x7684;&#x662F;&#x4E3A;&#x4E86;&#x5C3D;&#x53EF;&#x80FD;&#x5730;&#x91CF;&#x5316; Goroutine &#x7684;&#x5F00;&#x9500;&#x3002;&#x867D;&#x7136;&#x5B98;&#x65B9;&#x5BA3;&#x79F0;&#x7528; Golang &#x5199;&#x5E76;&#x53D1;&#x7A0B;&#x5E8F;&#x7684;&#x65F6;&#x5019;&#x968F;&#x4FBF;&#x8D77;&#x4E2A;&#x6210;&#x5343;&#x4E0A;&#x4E07;&#x7684; Goroutine &#x6BEB;&#x65E0;&#x538B;&#x529B;&#xFF0C;&#x4F46;&#x5F53;&#x6211;&#x4EEC;&#x8D77;&#x5341;&#x4E07;&#x3001;&#x767E;&#x4E07;&#x751A;&#x81F3;&#x5343;&#x4E07;&#x4E2A; Goroutine &#x5462;&#xFF1F;Goroutine &#x8F7B;&#x91CF;&#x7684;&#x5F00;&#x9500;&#x5C06;&#x88AB;&#x653E;&#x5927;&#x3002;</p>
 <h3 id="22-&#x9650;&#x5236;&#x534F;&#x7A0B;&#x6570;&#x91CF;"><a name="22-&#x9650;&#x5236;&#x534F;&#x7A0B;&#x6570;&#x91CF;" class="anchor-navigation-ex-anchor" href="#22-&#x9650;&#x5236;&#x534F;&#x7A0B;&#x6570;&#x91CF;"><i class="fa fa-link" aria-hidden="true"></i></a>2.2 &#x9650;&#x5236;&#x534F;&#x7A0B;&#x6570;&#x91CF;</h3>
 <p>&#x7CFB;&#x7EDF;&#x5730;&#x8D44;&#x6E90;&#x662F;&#x6709;&#x9650;&#xFF0C;&#x534F;&#x7A0B;&#x662F;&#x6709;&#x4EE3;&#x4EF7;&#x7684;&#xFF0C;&#x4E3A;&#x4E86;&#x4FDD;&#x62A4;&#x7A0B;&#x5E8F;&#xFF0C;&#x63D0;&#x9AD8;&#x6027;&#x80FD;&#xFF0C;&#x6211;&#x4EEC;&#x5E94;&#x4E3B;&#x52A8;&#x9650;&#x5236;&#x5E76;&#x53D1;&#x7684;&#x534F;&#x7A0B;&#x6570;&#x91CF;&#x3002;</p>
@@ -1228,7 +1232,7 @@ p, _ := ants.NewPool(<span class="hljs-number">10000</span>)
 <h1 id="4&#x5C0F;&#x7ED3;"><a name="4&#x5C0F;&#x7ED3;" class="anchor-navigation-ex-anchor" href="#4&#x5C0F;&#x7ED3;"><i class="fa fa-link" aria-hidden="true"></i></a>4.&#x5C0F;&#x7ED3;</h1>
 <p>Golang &#x4E3A;&#x5E76;&#x53D1;&#x800C;&#x751F;&#x3002;Goroutine &#x662F;&#x7531; Go &#x8FD0;&#x884C;&#x65F6;&#x7BA1;&#x7406;&#x7684;&#x8F7B;&#x91CF;&#x7EA7;&#x7EBF;&#x7A0B;&#xFF0C;&#x901A;&#x8FC7;&#x5B83;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8F7B;&#x677E;&#x5B9E;&#x73B0;&#x5E76;&#x53D1;&#x7F16;&#x7A0B;&#x3002;Go &#x867D;&#x7136;&#x8F7B;&#x91CF;&#xFF0C;&#x4F46;&#x5929;&#x4E0B;&#x6CA1;&#x6709;&#x514D;&#x8D39;&#x7684;&#x5348;&#x9910;&#xFF0C;&#x65E0;&#x4F11;&#x6B62;&#x5730;&#x5F00;&#x8F9F;&#x5927;&#x91CF; Go &#x7A0B;&#x52BF;&#x5FC5;&#x4F1A;&#x5E26;&#x6765;&#x6027;&#x80FD;&#x5F71;&#x54CD;&#xFF0C;&#x751A;&#x81F3;&#x7A0B;&#x5E8F;&#x5D29;&#x6E83;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x6211;&#x4EEC;&#x5E94;&#x5C3D;&#x53EF;&#x80FD;&#x7684;&#x63A7;&#x5236;&#x534F;&#x7A0B;&#x6570;&#x91CF;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x9700;&#x8981;&#xFF0C;&#x8BF7;&#x590D;&#x7528;&#x5B83;&#x3002; </p>
 <footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x7AE0;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2022-11-23 20:34:05
+2023-04-29 14:25:00
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -1273,7 +1277,7 @@ p, _ := ants.NewPool(<span class="hljs-number">10000</span>)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.限制协程数量","level":"1.5.4.2","depth":3,"next":{"title":"3.使用 sync.Once 避免重复执行","level":"1.5.4.3","depth":3,"path":"第四篇：最佳性能/3.并发编程/3.使用sync.Once避免重复执行.md","ref":"第四篇：最佳性能/3.并发编程/3.使用sync.Once避免重复执行.md","articles":[]},"previous":{"title":"1.关于锁","level":"1.5.4.1","depth":3,"path":"第四篇：最佳性能/3.并发编程/1.关于锁.md","ref":"第四篇：最佳性能/3.并发编程/1.关于锁.md","articles":[]},"dir":"ltr"},"config":{"plugins":["custom-favicon","splitter","disqus","tbfed-pagefooter","github","code","sidebar-style","anchor-navigation-expand","popup","livereload"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"sidebar-style":{"author":"","title":"<br>Go 编码建议<br><br>"},"tbfed-pagefooter":{"copyright":"","modify_label":"该文章修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"disqus":{"useIdentifier":false,"shortName":"go-coding-advice"},"github":{"url":"https://github.com/dablelv/go-coding-advice"},"livereload":{},"splitter":{},"search":{},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"assets/images/favicon.ico","custom-favicon":{},"anchor-navigation-expand":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Dablelv","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Go 编码建议","links":{"sidebar":{"个人站点":"https://dablelv.github.io/dablelvweb","CSDN 主页":"https://dablelv.blog.csdn.net","GitHub 主页":"https://github.com/dablelv","本书 GitHub 地址 ":"https://github.com/dablelv/go-coding-advice"}},"gitbook":"*","description":"一本关于 Go 编码风格的开源电子书"},"file":{"path":"第四篇：最佳性能/3.并发编程/2.限制协程数量.md","mtime":"2022-11-23T12:34:05.784Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-04-23T11:25:31.429Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.限制协程数量","level":"1.5.4.2","depth":3,"next":{"title":"3.使用 sync.Once 避免重复执行","level":"1.5.4.3","depth":3,"path":"第四篇：最佳性能/3.并发编程/3.使用sync.Once避免重复执行.md","ref":"第四篇：最佳性能/3.并发编程/3.使用sync.Once避免重复执行.md","articles":[]},"previous":{"title":"1.关于锁","level":"1.5.4.1","depth":3,"path":"第四篇：最佳性能/3.并发编程/1.关于锁.md","ref":"第四篇：最佳性能/3.并发编程/1.关于锁.md","articles":[]},"dir":"ltr"},"config":{"plugins":["custom-favicon","splitter","disqus","tbfed-pagefooter","github","code","sidebar-style","anchor-navigation-expand","popup","livereload"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"sidebar-style":{"author":"","title":"<br>Go 编码建议<br><br>"},"tbfed-pagefooter":{"copyright":"","modify_label":"该文章修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"disqus":{"useIdentifier":false,"shortName":"go-coding-advice"},"github":{"url":"https://github.com/dablelv/go-coding-advice"},"livereload":{},"splitter":{},"search":{},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"assets/images/favicon.ico","custom-favicon":{},"anchor-navigation-expand":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Dablelv","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Go 编码建议","links":{"sidebar":{"个人站点":"https://dablelv.github.io/dablelvweb","CSDN 主页":"https://dablelv.blog.csdn.net","GitHub 主页":"https://github.com/dablelv","本书 GitHub 地址 ":"https://github.com/dablelv/go-coding-advice"}},"gitbook":"*","description":"一本关于 Go 编码风格的开源电子书"},"file":{"path":"第四篇：最佳性能/3.并发编程/2.限制协程数量.md","mtime":"2023-04-29T06:25:00.034Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-04-29T06:25:27.364Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
