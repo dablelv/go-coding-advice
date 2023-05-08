@@ -28,7 +28,7 @@
     "disqus": {
       "shortName": "go-coding-advice"
     },
-    "favicon": "assets/images/favicon.ico",
+    "favicon": "assets/imgs/favicon.ico",
     "tbfed-pagefooter": {
       "copyright":"",
       "modify_label": "该文章修订时间：",

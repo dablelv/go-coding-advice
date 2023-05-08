@@ -1,4 +1,4 @@
-![在这里插入图片描述](assets/images/banner.png)
+![在这里插入图片描述](/assets/imgs/banner.png)
 
 # 本书由来
 
