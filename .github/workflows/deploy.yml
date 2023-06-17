@@ -28,9 +28,10 @@ jobs:
           node-version: 12
       
       - name: Install gitbook-cli
-        run: | 
-          npm install graceful-fs@latest --save
-          npm install -g gitbook-cli
+        run: |
+          npm install gitbook-cli@2.1.2
+          # cd 
+          # npm install graceful-fs@latest --save
         
       - name: Install Dependent Node Pkgs
         run: gitbook install
