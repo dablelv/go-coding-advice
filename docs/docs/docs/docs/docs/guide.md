@@ -1,11 +1,11 @@
 # 发布到 Github
 
-1.删除 docs 目录
+执行 build.sh。
 
-2.构建：gitbook build，生成的 _book 目录。
+如果本地未安装依赖的 node 包，需要先执行 gitbook install 安装依赖，会自动放到当前 node_modules 目录下。
 
-3.进行本地预览：gitbook serve。
+然后使用 git 将变更推送到远端仓库。
 
-注意，无需先执行 gitbook build，会自动进行构建。
+# 本地预览
 
-4.预览无误后将生成的 _book 更名为 docs，然后将变更推送到 Github。
+执行 gitbook serve 进行本地预览。
