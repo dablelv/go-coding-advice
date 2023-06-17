@@ -25,10 +25,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 12
       
       - name: Install gitbook-cli
-        run: npm install gitbook-cli -g
+        run: npm install -g gitbook-cli
         
       - name: Install Dependent Node Pkgs
         run: gitbook install
