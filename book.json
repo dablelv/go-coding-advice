@@ -42,7 +42,6 @@
     "sharing":{
       "qq": true,
       "weibo": true,
-      "wechat": true,
       "all": []
     },
     "sidebar-style": {
