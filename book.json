@@ -22,7 +22,9 @@
     "code",
     "sidebar-style",
     "anchor-navigation-expand",
-    "popup"
+    "popup",
+    "-sharing",
+    "sharing-plus"
   ],
   "pluginsConfig":{
     "disqus": {
@@ -36,6 +38,12 @@
     },
     "github": {
       "url": "https://github.com/dablelv/go-coding-advice"
+    },
+    "sharing":{
+      "qq": true,
+      "weibo": true,
+      "wechat": true,
+      "all": []
     },
     "sidebar-style": {
       "title": "<br>Go 编码建议<br><br>",
