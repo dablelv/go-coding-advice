@@ -43,7 +43,7 @@ Go 虽然简单，但其功能特性却不单一。其丰富的语言特性，�
 
 # 目标读者
 
-如果是 Go 的初学者，建议先略过本书，了解下 Go 官方的入门指南 [A Tour of Go](https://go.dev/tour/)，这是入门的最佳读物。
+如果您是 Go 初学者，建议先了解下官方入门指南 [A Tour of Go](https://go.dev/tour/)，这是入门 Go 的最佳读物。
 
 如果是想全面了解 Go 语法知识和语言特性与，也建议先略过本书。Go 官方文档 [The Go Programming Language Specification](https://golang.org/ref/spec) 和 [Effective Go](https://golang.org/doc/effective_go.html)，以及第三方书籍 [Go 语言圣经](https://books.studygolang.com/gopl-zh/) 也是不错的选择。
 
