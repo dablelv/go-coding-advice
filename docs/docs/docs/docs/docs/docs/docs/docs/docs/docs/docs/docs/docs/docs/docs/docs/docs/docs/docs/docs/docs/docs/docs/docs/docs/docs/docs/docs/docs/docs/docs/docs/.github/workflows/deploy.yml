@@ -30,8 +30,10 @@ jobs:
       - name: Install gitbook-cli
         run: |
           npm install -g gitbook-cli@2.1.2
+          # cd 
+          # npm install graceful-fs@latest --save
         
-      - name: Install dependent node pkgs
+      - name: Install Dependent Node Pkgs
         run: gitbook install
       
       # Runs a single command using the runners shell
